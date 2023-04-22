@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('periodes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name', 191);
+            $table->string('dates', 191)->nullable();
         });
     }
 

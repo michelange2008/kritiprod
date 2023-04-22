@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('contenus', function (Blueprint $table) {
             $table->id();
             $table->foreignId('localisation_id')->constrained();
+            $table->foreignId('source_id')->constrained();
             $table->foreignId('type_id')->constrained();
             $table->foreignId('soustype_id')->constrained();
             $table->foreignId('periodes_id')->constrained();
             $table->text('description');
             $table->text('formalisees');
-            $table->foreignId('nature_id')->constrained();
-            $table->timestamps();
+
         });
     }
 

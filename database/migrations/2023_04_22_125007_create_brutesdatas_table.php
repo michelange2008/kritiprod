@@ -14,15 +14,14 @@ return new class extends Migration
         Schema::create('brutesdatas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('contenu_id')->constrained();
-            $table->foreignId('source_id')->constrained();
-            $table->foreignId('brutetype')->constrained();
+            $table->foreignId('brutetype_id')->constrained();
             $table->foreignId('nature_id')->constrained();
             $table->foreignId('accessible_id')->constrained();
             $table->text('qualite');
             $table->text('adventices');
             $table->foreignId('format_id')->constrained();
             $table->foreignId('application_id')->constrained();
-            $table->timestamps();
+
         });
     }
 
