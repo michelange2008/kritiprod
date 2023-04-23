@@ -1,0 +1,28 @@
+id ;nom;type_id
+1;Polliniques;1
+2;Micromorphologie sol et sédimentaires;1
+3;Géomorphologie;1
+4;Reconstitution climatique;1
+5;Occupations;2
+6;Aménagements;2
+7;Structures stockage;2
+8;Outillage;2
+9;Assemblages carpologiques;3
+10;Analyse grains d'amidon;3
+11;Analyses isotopiques;3
+12;Archéozoologiques;7
+13;Sols;4
+14;Topographie;4
+15;Hydrologie;4
+16;Climat;4
+17;Unités phytoécologiques;4
+18;Systèmes de culture;5
+19;Rendement ou production;5
+20;Techniques agricoles;5
+21;Epigraphiques;6
+22;Littéraires/historiques;6
+23;Tablettes linéaire B;6
+24;Restes anthracologiques;7
+25;Flores;7
+26;Occupations-Assemblages carpologiques;7
+27;Polliniques - Micromorphologie sol et sédimentaires;7

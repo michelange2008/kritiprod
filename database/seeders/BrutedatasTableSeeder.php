@@ -2,16 +2,25 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+use DB;
+use JeroenZwart\CsvSeeder\CsvSeeder;
 
-class BrutedatasTableSeeder extends Seeder
+class BrutedatasTableSeeder extends CsvSeeder
 {
+    public function __construct()
+    {
+        $this->file = "/database/seeders/csvs/brutedatas.csv";
+        $this->timestamps = false;
+        $this->truncate=false;
+    }
     /**
      * Run the database seeds.
      */
+
     public function run(): void
     {
-        //
+        // Recommended when importing larger CSVs
+        DB::disableQueryLog();
+        parent::run();
     }
 }

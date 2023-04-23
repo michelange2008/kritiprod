@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('sources', function (Blueprint $table) {
             $table->id();
             $table->text('nom');
-            $table->year('annee');
+            $table->unsignedInteger('annee');
             $table->string('auteur');
             $table->text('reference');
+            $table->text('lien')->nullable();
         });
     }
 

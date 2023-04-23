@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('contenu_id')->constrained();
             $table->foreignId('brutetype_id')->constrained();
-            $table->foreignId('nature_id')->constrained();
+            $table->text('naturedatas');
             $table->foreignId('accessible_id')->constrained();
-            $table->text('qualite');
-            $table->text('adventices');
-            $table->foreignId('format_id')->constrained();
+            $table->text('qualite')->nullable();
+            $table->boolean('adventices')->nullable();
+            $table->unsignedBigInteger('format_id')->nullable();
+            $table->foreign('format_id')->references('id')->on('formats');
             $table->foreignId('application_id')->constrained();
 
         });

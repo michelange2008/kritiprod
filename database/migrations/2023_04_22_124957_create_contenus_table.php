@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('localisation_id')->constrained();
             $table->foreignId('source_id')->constrained();
-            $table->foreignId('type_id')->constrained();
             $table->foreignId('soustype_id')->constrained();
-            $table->foreignId('periodes_id')->constrained();
+            $table->foreignId('periode_id')->constrained();
+            $table->foreignId('nature_id')->constrained();
             $table->text('description');
-            $table->text('formalisees');
+            $table->text('formalisees')->nullable();
 
         });
     }

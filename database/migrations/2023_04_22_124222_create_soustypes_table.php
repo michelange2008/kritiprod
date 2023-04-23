@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('soustypes', function (Blueprint $table) {
             $table->id();
             $table->string('nom', 191);
+            $table->foreignId('type_id')->constrained();
         });
     }
 
