@@ -2,31 +2,37 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Accessible as ModelsAccessible;
+use App\Models\Accessible;
 use Livewire\Component;
 
-class Accessible extends Component
+class AccessibleComp extends Component
 {
-    protected Accessible $accessible;
+    public $accessible;
     public $accessibles;
 
-    protected $validate = [
+    protected $rules = [
         'accessible.nom' => 'required|string|max:191',
     ];
 
     public function mount()
     {
-        $this->accessibles = ModelsAccessible::all();
+        $this->accessibles = Accessible::all();
         $this->accessible = new Accessible();
     }
 
     public function create()
     {
         $this->validate();
+        $this->accessible->save();
+        $this->mount();
+    }
+
+    public function edit()
+    {
         dd($this->accessible);
     }
     public function render()
     {
-        return view('livewire.accessible');
+        return view('livewire.accessible-comp');
     }
 }

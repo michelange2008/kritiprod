@@ -1,4 +1,4 @@
-<button
+<button {{ $attributes }}
     class="p-2 rounded-full group bg-teal-700 hover:bg-teal-500 
     active:bg-teal-950 active:outline active:outline-2 active:outline-teal-700 active:outline-offset-2">
 
