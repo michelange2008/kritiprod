@@ -12,6 +12,7 @@
     x-cloak 
     x-on:open-modal.window="$event.detail == '{{ $name }}' ? show = !show : null"
     x-trap.inert.noscroll="show" 
+    x-on:close.stop="show = false"
 
     @keydown.escape="show = false"
     x-transition:enter="ease-out duration-100"
