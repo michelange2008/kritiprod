@@ -8,43 +8,54 @@ use Livewire\Component;
 class AccessibleComp extends Component
 {
     public $accessible;
+    public $nom;
     public $accessibles;
-    public $showModal = false;
+    public $showModal;
 
     protected $rules = [
         'accessible.nom' => 'required|string|max:191|min:2',
     ];
 
     protected $listeners = [
-        'created',
-        'updated',
+        'created' => 'itemCreated',
     ];
 
     public function mount()
     {
         $this->accessibles = Accessible::all();
         $this->accessible = new Accessible();
+        $this->showModal = false;
+
     }
 
-    public function created()
+    public function itemCreated()
     {
+        
         $this->showModal = false;
+        $this->mount();
+        session()->flash('message', 'Un nouvel item a été créé.');
     }
 
     public function create()
     {
         $this->validate();
         $this->accessible->save();
-        $this->showModal = false;
-        // session()->flash('message', 'Un nouvel item a été créé.');
+        $this->emit('created');
+
     }
 
-    public function update()
+    public function update($id)
     {
-        $this->validate();
-        $this->accessible->save();
+   
+        $this->validate([
+            'nom' => 'required|string|max:191|min:4'
+        ]);
+        $accessible = Accessible::find($id);
+        $accessible->nom = $this->nom;
+        $accessible->save();
+        // $this->emit('created');
         session()->flash('message', 'La mise à jour a été effectuée');
-        $this->showModal = false;
+        $this->mount();
 
     }
 
