@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Accessible;
+use App\Models\Localisation;
 use App\Traits\LitJson;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
-class AccessibleComp extends Component
+class LocalisationComp extends Component
 {
     use LitJson;
 
-    public $accessibles;
+    public $localisations;
     public $state = [];
     public $titres = [];
     public $change = false;
@@ -23,8 +23,8 @@ class AccessibleComp extends Component
 
     public function mount()
     {
-        $this->accessibles = Accessible::all();
-        $this->titres = (array) $this->litJson('accessibles');
+        $this->localisations = Localisation::orderBy('nom')->get();
+        $this->titres = (array) $this->litJson('localisations');
     }
 
     public function store()
@@ -32,21 +32,21 @@ class AccessibleComp extends Component
 
         Validator::make($this->state, $this->rules)->validate();
 
-        Accessible::create($this->state);
+        Localisation::create($this->state);
 
         $this->reset('state');
         $this->change = false;
-        $this->accessibles = Accessible::all();
+        $this->localisations = Localisation::sortBy('nom')->get();
     }
 
     public function edit($id)
     {
         $this->updateMode = true;
 
-        $accessible = Accessible::find($id);
+        $localisation = Localisation::find($id);
         $this->state = [
-            'id' => $accessible->id,
-            'nom' => $accessible->nom,
+            'id' => $localisation->id,
+            'nom' => $localisation->nom,
         ];
     }
 
@@ -66,24 +66,24 @@ class AccessibleComp extends Component
     {
         Validator::make($this->state, $this->rules)->validate();
 
-        Accessible::where('id', $this->state['id'])
+        Localisation::where('id', $this->state['id'])
             ->update(['nom' => $this->state['nom']]);
 
         $this->cancel();
         $this->change = false;
 
-        $this->accessibles = Accessible::all();
+        $this->localisations = Localisation::all();
     }
 
     public function delete($id)
     {
         
-        Accessible::destroy($id);
-        $this->accessibles = Accessible::all();
+        Localisation::destroy($id);
+        $this->localisations = Localisation::all();
     }
 
     public function render()
     {
-        return view('livewire.accessible-comp');
+        return view('livewire.localisation-comp');
     }
 }

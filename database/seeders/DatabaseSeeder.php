@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
        $this->call([
            // RolesTableSeeder::class,
-        // AccessiblesTableSeeder::class,
+        AccessiblesTableSeeder::class,
         // ApplicationsTableSeeder::class,
         // BrutetypesTableSeeder::class,
         // FormatsTableSeeder::class,
@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         // SourcesTableSeeder::class,
         // TypesTableSeeder::class,
         // SoustypesTableSeeder::class,
-        ContenusTableSeeder::class,
+        // ContenusTableSeeder::class,
         // BrutedatasTableSeeder::class,
        ]);
     }

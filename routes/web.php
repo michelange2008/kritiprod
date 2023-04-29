@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\AccessibleComp;
+use App\Http\Livewire\ApplicationComp;
+use App\Http\Livewire\LocalisationComp;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     Route::get('admin/accessible', AccessibleComp::class)->name('admin.accessible');
+    Route::get('admin/application', ApplicationComp::class)->name('admin.application');
+    Route::get('admin/localisation', LocalisationComp::class)->name('admin.localisation');
 });
 
 require __DIR__.'/auth.php';

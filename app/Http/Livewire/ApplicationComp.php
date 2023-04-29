@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Accessible;
+use App\Models\Application;
 use App\Traits\LitJson;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
-class AccessibleComp extends Component
+class ApplicationComp extends Component
 {
     use LitJson;
 
-    public $accessibles;
+    public $applications;
     public $state = [];
     public $titres = [];
     public $change = false;
@@ -23,8 +23,8 @@ class AccessibleComp extends Component
 
     public function mount()
     {
-        $this->accessibles = Accessible::all();
-        $this->titres = (array) $this->litJson('accessibles');
+        $this->applications = Application::all();
+        $this->titres = (array) $this->litJson('applications');
     }
 
     public function store()
@@ -32,21 +32,21 @@ class AccessibleComp extends Component
 
         Validator::make($this->state, $this->rules)->validate();
 
-        Accessible::create($this->state);
+        Application::create($this->state);
 
         $this->reset('state');
         $this->change = false;
-        $this->accessibles = Accessible::all();
+        $this->applications = Application::all();
     }
 
     public function edit($id)
     {
         $this->updateMode = true;
 
-        $accessible = Accessible::find($id);
+        $application = Application::find($id);
         $this->state = [
-            'id' => $accessible->id,
-            'nom' => $accessible->nom,
+            'id' => $application->id,
+            'nom' => $application->nom,
         ];
     }
 
@@ -66,24 +66,24 @@ class AccessibleComp extends Component
     {
         Validator::make($this->state, $this->rules)->validate();
 
-        Accessible::where('id', $this->state['id'])
+        Application::where('id', $this->state['id'])
             ->update(['nom' => $this->state['nom']]);
 
         $this->cancel();
         $this->change = false;
 
-        $this->accessibles = Accessible::all();
+        $this->applications = Application::all();
     }
 
     public function delete($id)
     {
         
-        Accessible::destroy($id);
-        $this->accessibles = Accessible::all();
+        Application::destroy($id);
+        $this->applications = Application::all();
     }
 
     public function render()
     {
-        return view('livewire.accessible-comp');
+        return view('livewire.application-comp');
     }
 }
