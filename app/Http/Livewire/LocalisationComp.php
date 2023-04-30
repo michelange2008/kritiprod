@@ -3,46 +3,35 @@
 namespace App\Http\Livewire;
 
 use App\Models\Localisation;
-use App\Traits\LitJson;
-use Illuminate\Support\Facades\Validator;
-use Livewire\Component;
 
-class LocalisationComp extends Component
+class LocalisationComp extends ItemComp
 {
-    use LitJson;
 
-    public $localisations;
-    public $state = [];
-    public $titres = [];
-    public $change = false;
-    public $updateMode = false;
-
-    protected $rules = [
-        'nom' => 'required|string|max:191|min:2'
-    ];
 
     public function mount()
     {
-        $this->localisations = Localisation::orderBy('nom')->get();
-        $this->titres = (array) $this->litJson('localisations');
+        parent::mount();
+        $this->initDatas('localisation'); // prend dans le json toutes les infos propres à cet item
     }
 
-    public function store()
+    public function getItems()
     {
+        return Localisation::where('nom', 'LIKE', "%{$this->search}%")->orderBy('nom')->get();
+    }
 
-        Validator::make($this->state, $this->rules)->validate();
-
+    public function createItem()
+    {
         Localisation::create($this->state);
-
-        $this->reset('state');
-        $this->change = false;
-        $this->localisations = Localisation::sortBy('nom')->get();
     }
 
-    public function edit($id)
+    public function updateItem()
     {
-        $this->updateMode = true;
+        Localisation::where('id', $this->state['id'])
+            ->update(['nom' => $this->state['nom']]);
+    }
 
+    public function editItem($id)
+    {
         $localisation = Localisation::find($id);
         $this->state = [
             'id' => $localisation->id,
@@ -50,40 +39,13 @@ class LocalisationComp extends Component
         ];
     }
 
-    public function cancel()
+    public function deleteItem($id)
     {
-        $this->updateMode = false;
-        $this->reset('state');
-    }
-
-    public function addModal()
-    {
-        $this->cancel();
-        $this->change = $this->change ? false : true;
-    }
-
-    public function update()
-    {
-        Validator::make($this->state, $this->rules)->validate();
-
-        Localisation::where('id', $this->state['id'])
-            ->update(['nom' => $this->state['nom']]);
-
-        $this->cancel();
-        $this->change = false;
-
-        $this->localisations = Localisation::all();
-    }
-
-    public function delete($id)
-    {
-        
         Localisation::destroy($id);
-        $this->localisations = Localisation::all();
     }
 
-    public function render()
+    public function search()
     {
-        return view('livewire.localisation-comp');
+        # code...
     }
 }

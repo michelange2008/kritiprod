@@ -12,10 +12,12 @@ class AccessibleComp extends Component
     use LitJson;
 
     public $accessibles;
-    public $state = [];
-    public $titres = [];
-    public $change = false;
-    public $updateMode = false;
+    public array $state = [];
+    public array $titres = [];
+    public string $titre;
+    public string $icone;
+    public bool $change = false;
+    public bool $updateMode = false;
 
     protected $rules = [
         'nom' => 'required|string|max:191|min:2'
@@ -24,7 +26,10 @@ class AccessibleComp extends Component
     public function mount()
     {
         $this->accessibles = Accessible::all();
-        $this->titres = (array) $this->litJson('accessibles');
+        $datas = (object) $this->litJson('accessibles');
+        $this->titre = $datas->titre;
+        $this->icone = $datas->icone;
+        $this->titres = (array) $datas->titres;
     }
 
     public function store()

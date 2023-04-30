@@ -3,46 +3,33 @@
 namespace App\Http\Livewire;
 
 use App\Models\Application;
-use App\Traits\LitJson;
-use Illuminate\Support\Facades\Validator;
-use Livewire\Component;
 
-class ApplicationComp extends Component
+class ApplicationComp extends ItemComp
 {
-    use LitJson;
-
-    public $applications;
-    public $state = [];
-    public $titres = [];
-    public $change = false;
-    public $updateMode = false;
-
-    protected $rules = [
-        'nom' => 'required|string|max:191|min:2'
-    ];
-
     public function mount()
     {
-        $this->applications = Application::all();
-        $this->titres = (array) $this->litJson('applications');
+        parent::mount();
+        $this->initDatas('application');
+    }
+    
+    public function getItems()
+    {
+        return Application::orderBy('nom')->get();
     }
 
-    public function store()
+    public function createItem()
     {
-
-        Validator::make($this->state, $this->rules)->validate();
-
         Application::create($this->state);
-
-        $this->reset('state');
-        $this->change = false;
-        $this->applications = Application::all();
     }
 
-    public function edit($id)
+    public function updateItem()
     {
-        $this->updateMode = true;
+        Application::where('id', $this->state['id'])
+            ->update(['nom' => $this->state['nom']]);
+    }
 
+    public function editItem($id)
+    {
         $application = Application::find($id);
         $this->state = [
             'id' => $application->id,
@@ -50,40 +37,8 @@ class ApplicationComp extends Component
         ];
     }
 
-    public function cancel()
+    public function deleteItem($id)
     {
-        $this->updateMode = false;
-        $this->reset('state');
-    }
-
-    public function addModal()
-    {
-        $this->cancel();
-        $this->change = $this->change ? false : true;
-    }
-
-    public function update()
-    {
-        Validator::make($this->state, $this->rules)->validate();
-
-        Application::where('id', $this->state['id'])
-            ->update(['nom' => $this->state['nom']]);
-
-        $this->cancel();
-        $this->change = false;
-
-        $this->applications = Application::all();
-    }
-
-    public function delete($id)
-    {
-        
         Application::destroy($id);
-        $this->applications = Application::all();
-    }
-
-    public function render()
-    {
-        return view('livewire.application-comp');
     }
 }

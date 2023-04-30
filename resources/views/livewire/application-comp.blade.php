@@ -1,6 +1,6 @@
 <div class="my-3" x-data="{ show: @entangle('change'), update: @entangle('updateMode') }">
-    
-    <x-titres.titre icone="application.svg">Application</x-titres.titre>
+
+    <x-titres.titre :icone="$icone">{{ $titre}}</x-titres.titre>
 
     <x-flash></x-flash>
     
