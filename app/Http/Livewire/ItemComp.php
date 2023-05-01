@@ -37,12 +37,14 @@ abstract class ItemComp extends Component
        $datas = (object) $this->litJson($json);
        $this->titre = $datas->titre;
        $this->icone = $datas->icone;
-       $this->titres = (array) $datas->titres;
-       $this->rules = (array) $datas->rules;
+    //    $this->titres = (array) $datas->titres;
+    //    $this->rules = (array) $datas->rules;
        // Il faut convertir les objets issus du json en array
        $fields = (array) $datas->champs;
        foreach ($fields as $key => $field) {
-           $this->champs[$key] = [
+            $this->rules[$key] = $field->rules;
+            $this->titres[$key] = $field->label;
+            $this->champs[$key] = [
                'type' => $field->type,
                'label' => $field->label,
                'field' => $field->field,

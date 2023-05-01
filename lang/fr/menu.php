@@ -5,4 +5,5 @@ return [
     'accessible' => "accessibilité",
     'application' => "application",
     'localisation' => "localisation",
+    'user' => "utilisateur",
 ];

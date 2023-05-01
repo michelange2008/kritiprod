@@ -16,6 +16,7 @@
                 </x-nav-link>
 
                 <x-dropdown-perso :haut="'admin'" :bas="[
+                    ['name' => 'user', 'route' => 'admin.user'],
                     ['name' => 'accessible', 'route' => 'admin.accessible'],
                     ['name' => 'application', 'route' => 'admin.application'],
                     ['name' => 'localisation', 'route' => 'admin.localisation'],

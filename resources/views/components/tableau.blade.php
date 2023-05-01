@@ -10,10 +10,10 @@
         <tbody>
             @foreach ($items as $item)
                 <tr class="border-2">
-                    <td class="p-2 border-2">{{ $item->id }} </td>
-                    <td class="p-2 border-2">
-                        {{ $item->nom }}
-                    </td>
+                    @foreach ($champs as $field => $champ)
+                           <td class="p-2 border-2">{{ $item->$field}} </td>
+                    @endforeach
+
                     <td class="p-2 border-2 text-center">
                         <button>
                             <x-buttons.edit-small-button x-on:click="show = !show"

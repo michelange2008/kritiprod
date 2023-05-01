@@ -43,9 +43,4 @@ class LocalisationComp extends ItemComp
     {
         Localisation::destroy($id);
     }
-
-    public function search()
-    {
-        # code...
-    }
 }

@@ -4,16 +4,10 @@
 
     <x-flash></x-flash>
     
-    <div class="my-3 flex gap-3 items-center">
-        <p>Rechercher</p>
-        <input class="grow" type="text" wire:model.debounce.500ms="search">
-        <button class=" flex items-center place-self-auto border-black border" wire:click='resetSearch'>
-            <img class="w-10 p-1" src="{{ url('storage/img/icones/reset.svg')}}" alt="reset">
-        </button>
-    </div>
+    <x-search></x-search>
 
     {{-- Tableau des items --}}
-    <x-tableau :items="$items" :titres="$titres"></x-tableau>
+    <x-tableau :items="$items" :champs="$champs" :titres="$titres"></x-tableau>
 
     {{-- Bouton rond situé au bas à droite de l'écran pour ajouter un item --}}
     <x-buttons.success-round wire:click="addModal"></x-buttons.success-round>
