@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Traits\LitJson;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
@@ -48,8 +49,17 @@ abstract class ItemComp extends Component
                'type' => $field->type,
                'label' => $field->label,
                'field' => $field->field,
+               'options' => [],
            ];
+           if ($field->type == "select") {
+            $options = DB::table($field->table)->get();
+            foreach ($options as $option) {
+                array_push($this->champs[$key]['options'], $option->{$field->coltable});
+
+            }
+           }
        }
+       dd($this->champs);
    }
 
 
