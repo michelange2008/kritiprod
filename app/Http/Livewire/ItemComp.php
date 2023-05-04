@@ -12,6 +12,7 @@ abstract class ItemComp extends Component
     use LitJson;
 
     public $items;
+    public $role_id = "Webmaster";
     public array $state = [];
     public array $titres = [];
     public array $champs = [];
@@ -54,12 +55,10 @@ abstract class ItemComp extends Component
            if ($field->type == "select") {
             $options = DB::table($field->table)->get();
             foreach ($options as $option) {
-                array_push($this->champs[$key]['options'], $option->{$field->coltable});
-
+                $this->champs[$key]['options'][$option->id] = $option->{$field->coltable};
             }
            }
        }
-       dd($this->champs);
    }
 
 
