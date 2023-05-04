@@ -12,7 +12,6 @@ abstract class ItemComp extends Component
     use LitJson;
 
     public $items;
-    public $role_id = "Webmaster";
     public array $state = [];
     public array $titres = [];
     public array $champs = [];

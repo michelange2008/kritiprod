@@ -6,6 +6,8 @@ use App\Models\User;
 
 class UserComp extends ItemComp
 {
+    public $role_id = "";
+    
     public function mount()
     {
         parent::mount();
@@ -25,7 +27,10 @@ class UserComp extends ItemComp
     public function updateItem()
     {
         User::where('id', $this->state['id'])
-            ->update(['name' => $this->state['name']]);
+            ->update(
+                ['name' => $this->state['name']],
+                ['role_id' => $this->state['role_id']],
+            );
     }
 
     public function editItem($id)
@@ -34,6 +39,7 @@ class UserComp extends ItemComp
         $this->state = [
             'id' => $user->id,
             'name' => $user->name,
+            'role_id' => $user->role_id,
         ];
     }
 

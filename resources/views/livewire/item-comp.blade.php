@@ -26,8 +26,8 @@
 
                 @elseif ($champ['type'] == 'select')
                     <div class = "flex flex-col my-2">
-                        <label for="{{ $champ['field'] }}">{{ $champ['label'] }}</label>
-                        <select  id="{{ $champ['field'] }}" wire:model.defer="{{ 'state.'.$champ['field'] }}">
+                        <label>{{ $champ['label'] }}</label>
+                        <select wire:model.defer="{{ 'state.'.$champ['field'] }}">
                             {{-- <option disabled selected value="">Choisir une valeur dans la liste ...</option> --}}
                             @foreach ($champ['options'] as $id => $option)
                             <option value="{{ $id }}">{{ ucFirst($option) }} </option>
