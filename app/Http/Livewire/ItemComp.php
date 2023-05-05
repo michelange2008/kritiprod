@@ -3,6 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Traits\LitJson;
+use Egulias\EmailValidator\EmailValidator;
+use Egulias\EmailValidator\Validation\DNSCheckValidation;
+use Egulias\EmailValidator\Validation\RFCValidation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
@@ -38,8 +41,7 @@ abstract class ItemComp extends Component
        $datas = (object) $this->litJson($json);
        $this->titre = $datas->titre;
        $this->icone = $datas->icone;
-    //    $this->titres = (array) $datas->titres;
-    //    $this->rules = (array) $datas->rules;
+
        // Il faut convertir les objets issus du json en array
        $fields = (array) $datas->champs;
        foreach ($fields as $key => $field) {
@@ -63,7 +65,6 @@ abstract class ItemComp extends Component
 
     public function store()
     {
-
         Validator::make($this->state, $this->rules)->validate();
 
         $this->createItem();

@@ -6,7 +6,7 @@ use App\Models\User;
 
 class UserComp extends ItemComp
 {
-    public $role_id = "";
+    public array $rules;
     
     public function mount()
     {
@@ -18,19 +18,20 @@ class UserComp extends ItemComp
     {
         return User::where('name', 'LIKE', "%{$this->search}%")->orderBy('name')->get();
     }
-
+    
     public function createItem()
     {
         User::create($this->state);
     }
-
+    
     public function updateItem()
     {
         User::where('id', $this->state['id'])
-            ->update(
-                ['name' => $this->state['name']],
-                ['role_id' => $this->state['role_id']],
-            );
+            ->update([
+                'name' => $this->state['name'],
+                'email' => $this->state['email'],
+                'role_id' => $this->state['role_id']
+            ]);
     }
 
     public function editItem($id)
@@ -39,6 +40,7 @@ class UserComp extends ItemComp
         $this->state = [
             'id' => $user->id,
             'name' => $user->name,
+            'email' => $user->email,
             'role_id' => $user->role_id,
         ];
     }

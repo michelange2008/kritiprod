@@ -3,7 +3,7 @@
     <x-titres.titre :icone="$icone">{{ $titre }}</x-titres.titre>
 
     <x-flash></x-flash>
-    
+
     <x-search></x-search>
 
     {{-- Tableau des items --}}
@@ -19,24 +19,25 @@
             <x-titres.group-titre :updateMode="$updateMode"></x-titres.group-titre>
 
             @foreach ($champs as $champ)
+                @if ($champ['type'] == 'select')
 
-                @if ($champ['type'] == 'text')
+                    <x-forms.select :label="$champ['label']" :field="$champ['field']" :options="$champ['options']"></x-forms.select>
 
-                    <x-forms.input-text :label="$champ['label']" :field="$champ['field']"></x-forms.input-text>
+                @elseif ($champ['type'] == 'textarea')
 
-                @elseif ($champ['type'] == 'select')
-                    <div class = "flex flex-col my-2">
-                        <label>{{ $champ['label'] }}</label>
-                        <select wire:model.defer="{{ 'state.'.$champ['field'] }}">
-                            {{-- <option disabled selected value="">Choisir une valeur dans la liste ...</option> --}}
-                            @foreach ($champ['options'] as $id => $option)
-                            <option value="{{ $id }}">{{ ucFirst($option) }} </option>
-                            @endforeach
-                        </select>
-                    </div>
+                @elseif ($champ['type'] == 'checkbox')
 
+                @elseif ($champ['type'] == 'radio')
+
+                @elseif ($champ['type'] == 'file')
+
+                {{-- @elseif ($champ['type'] == 'number') --}}
+
+                @elseif ($champ['type'] == 'password')
+
+                @else
+                    <x-forms.input-text :type="$champ['type']" :label="$champ['label']" :field="$champ['field']"></x-forms.input-text>
                 @endif
-
             @endforeach
 
             <x-buttons.group-button :updateMode="$updateMode"></x-buttons.group-button>
