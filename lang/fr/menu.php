@@ -6,4 +6,5 @@ return [
     'application' => "application",
     'localisation' => "localisation",
     'user' => "utilisateur",
+    'periode' => "périodes",
 ];

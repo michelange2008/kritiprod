@@ -18,6 +18,7 @@ abstract class ItemComp extends Component
     public array $champs = [];
     public string $titre;
     public string $icone;
+    public string $sort;
     public bool $change = false;
     public bool $updateMode = false;
     public string $search = '';
@@ -40,6 +41,7 @@ abstract class ItemComp extends Component
         $datas = $this->jsonToArray($json);
         $this->titre = $datas->titre;
         $this->icone = $datas->icone;
+        $this->sort = $datas->sort;
         $this->rules = $datas->rules;
         $this->titres = $datas->titres;
         $this->champs = $datas->champs;

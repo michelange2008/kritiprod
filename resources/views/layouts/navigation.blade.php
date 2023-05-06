@@ -20,6 +20,7 @@
                     ['name' => 'accessible', 'route' => 'admin.accessible'],
                     ['name' => 'application', 'route' => 'admin.application'],
                     ['name' => 'localisation', 'route' => 'admin.localisation'],
+                    ['name' => 'periode', 'route' => 'admin.periode'],
                     // ['name' => 'produits', 'route' => 'produits.index'],
                     // ['name' => 'preps', 'route' => 'preparations.index'],
                     // ['name' => 'aromaform', 'route' => 'home'],
