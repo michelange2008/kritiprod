@@ -2,17 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Traits\JsonToArray;
 use App\Traits\LitJson;
-use Egulias\EmailValidator\EmailValidator;
-use Egulias\EmailValidator\Validation\DNSCheckValidation;
-use Egulias\EmailValidator\Validation\RFCValidation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
 abstract class ItemComp extends Component
 {
-    use LitJson;
+    use LitJson, JsonToArray;
 
     public $items;
     public array $state = [];
@@ -38,28 +36,13 @@ abstract class ItemComp extends Component
    
    public function initDatas($json)
    {
-       $datas = (object) $this->litJson($json);
-       $this->titre = $datas->titre;
-       $this->icone = $datas->icone;
-
-       // Il faut convertir les objets issus du json en array
-       $fields = (array) $datas->champs;
-       foreach ($fields as $key => $field) {
-            $this->rules[$key] = $field->rules;
-            $this->titres[$key] = $field->label;
-            $this->champs[$key] = [
-               'type' => $field->type,
-               'label' => $field->label,
-               'field' => $field->field,
-               'options' => [],
-           ];
-           if ($field->type == "select") {
-            $options = DB::table($field->table)->get();
-            foreach ($options as $option) {
-                $this->champs[$key]['options'][$option->id] = $option->{$field->coltable};
-            }
-           }
-       }
+        // Utilisation du trait JsonToArray pour récupérer les données du model 
+        $datas = $this->jsonToArray($json);
+        $this->titre = $datas->titre;
+        $this->icone = $datas->icone;
+        $this->rules = $datas->rules;
+        $this->titres = $datas->titres;
+        $this->champs = $datas->champs;
    }
 
 

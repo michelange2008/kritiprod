@@ -11,8 +11,12 @@
             @foreach ($items as $item)
                 <tr class="border-2">
                     @foreach ($champs as $field => $champ)
-                        
-                           <td class="p-2 border-2">{{ $item->$field}} </td>
+                            @if ($champ['type'] == 'select')
+                               <td class="p-2 border-2">{{ ucfirst($item->{$champ['belongsTo']}->{$champ['coltable']}) }}</td>
+
+                            @else
+                            <td class="p-2 border-2">{{ $item->$field}} </td>
+                            @endif
                     @endforeach
 
                     <td class="p-2 border-2 text-center">
