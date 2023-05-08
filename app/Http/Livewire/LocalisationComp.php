@@ -19,6 +19,11 @@ class LocalisationComp extends ItemComp
         return Localisation::where('nom', 'LIKE', "%{$this->search}%")->orderBy('nom')->get();
     }
 
+    public function showItem($id)
+    {
+        # code...
+    }
+
     public function createItem()
     {
         Localisation::create($this->state);

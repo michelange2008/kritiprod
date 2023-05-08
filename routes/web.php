@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DevController;
 use App\Http\Livewire\UserComp;
 use App\Http\Livewire\AccessibleComp;
 use App\Http\Livewire\ApplicationComp;
@@ -38,6 +39,11 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/application', ApplicationComp::class)->name('admin.application');
     Route::get('admin/localisation', LocalisationComp::class)->name('admin.localisation');
     Route::get('admin/periode', PeriodeComp::class)->name('admin.periode');
+
+    Route::get('dev', [DevController::class, 'index'])->name('dev.index');
+    Route::get('dev/{model}', [DevController::class, 'show'])->name('dev.show');
+    Route::get('dev/add/{model}', [DevController::class, 'add'])->name('dev.add');
+    Route::post('dev/update/{model}', [DevController::class, 'update'])->name('dev.update');
 });
 
 require __DIR__.'/auth.php';

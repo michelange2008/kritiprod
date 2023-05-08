@@ -26,6 +26,11 @@
                     // ['name' => 'aromaform', 'route' => 'home'],
                 ]"></x-dropdown-perso>
 
+                <x-nav-link :href="route('dev.index')" :active="request()->routeIs('dev.index')">
+                    {{ ucfirst('dev') }}
+                </x-nav-link>
+
+
                 {{-- <x-nav-link :href="route('visites')" :active="request()->routeIs('visites')">
                     {{ ucfirst(__('menu.visites')) }}
                 </x-nav-link>

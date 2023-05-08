@@ -14,7 +14,12 @@ class AccessibleComp extends ItemComp
     
     public function getItems()
     {
-        return Accessible::where('nom', 'LIKE', "%{$this->search}%")->orderBy('nom')->get();
+        return Accessible::where('nom', 'LIKE', "%{$this->search}%")->get();
+    }
+
+    public function showItem($id)
+    {
+        $this->item =Accessible::find($id);
     }
 
     public function createItem()

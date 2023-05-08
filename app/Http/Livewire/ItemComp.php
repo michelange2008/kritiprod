@@ -13,14 +13,18 @@ abstract class ItemComp extends Component
     use LitJson, JsonToArray;
 
     public $items;
+    public $item;
     public array $state = [];
     public array $titres = [];
     public array $champs = [];
     public string $titre;
     public string $icone;
     public string $sort;
+    public string $show;
+    public string $add;
     public bool $change = false;
     public bool $updateMode = false;
+    public bool $toShow = false;
     public string $search = '';
 
     protected array $rules = [];
@@ -28,25 +32,31 @@ abstract class ItemComp extends Component
     public function mount()
     {
         $this->items = $this->getItems();
-   }
+    }
 
-   public function updated()
-   {
-       $this->items = $this->getItems();
-   }
-   
-   public function initDatas($json)
-   {
+    public function updated()
+    {
+        $this->items = $this->getItems();
+    }
+
+    public function initDatas($json)
+    {
         // Utilisation du trait JsonToArray pour récupérer les données du model 
         $datas = $this->jsonToArray($json);
         $this->titre = $datas->titre;
         $this->icone = $datas->icone;
         $this->sort = $datas->sort;
+        $this->show = $datas->show;
+        $this->add = $datas->add;
         $this->rules = $datas->rules;
         $this->titres = $datas->titres;
         $this->champs = $datas->champs;
-   }
+    }
 
+    public function show($id)
+    {
+        $this->showItem($id);
+    }
 
     public function store()
     {
@@ -109,6 +119,14 @@ abstract class ItemComp extends Component
      * @return Illuminate\Database\Eloquent\Collection
      */
     abstract public function getItems();
+
+    /**
+     * Affiche le contenu d'un item
+     *
+     * @param int $id
+     * @return void
+     */
+    abstract public function showItem($id);
 
     /**
      * Crée un item sur la base des informations présentes dans state

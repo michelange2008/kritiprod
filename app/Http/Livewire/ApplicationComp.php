@@ -17,6 +17,11 @@ class ApplicationComp extends ItemComp
         return Application::where('nom', 'LIKE', "%{$this->search}%")->orderBy('nom')->get();
     }
 
+    public function showItem($id)
+    {
+        # code...
+    }
+
     public function createItem()
     {
         Application::create($this->state);

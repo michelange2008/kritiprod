@@ -19,6 +19,11 @@ class PeriodeComp extends ItemComp
         return Periode::where('nom', 'LIKE', "%{$this->search}%")->get();
     }
 
+    public function showItem($id)
+    {
+        $this->item = Periode::find($id);
+    }
+
     public function createItem()
     {
         Periode::create($this->state);

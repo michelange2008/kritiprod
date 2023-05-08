@@ -21,7 +21,7 @@
         
     }
     .titre {
-        @apply flex items-center gap-3 px-3 py-2 rounded h1 text-gray-100
+        @apply my-3 flex items-center gap-3 px-3 py-2 rounded h1 text-gray-100
     }
     .titre-1 {
         @apply flex items-end gap-2 px-3 py-2 rounded h2 text-white

@@ -30,19 +30,26 @@ trait JsonToArray
     {
         $values = new Collection();
         $datas = (object) $this->litJson($json);
-        $titre = $datas->titre;
-        $icone = $datas->icone;
-        $sort = $datas->sort;
+
+        $values->titre = $datas->titre ?? "Liste des items";
+        $values->icone = $datas->icone ?? "default.svg";
+        $values->sort = $datas->sort ?? 'id';
+        $values->show = $datas->show ?? true;
+        $values->add = $datas->add ?? true;
         // Il faut convertir les objets issus du json en array
         $fields = (array) $datas->champs;
         foreach ($fields as $key => $field) {
              $rules[$key] = $field->rules;
-             $titres[$key] = $field->label;
+             $titres[$key] = [
+                'label' => $field->label ?? "intitulé",
+                'onTable' => $field->onTable ?? true,
+            ];
              $champs[$key] = [
                 'type' => $field->type ?? 'text',
                 'field' => $field->field ?? '',
                 'label' => $field->label ?? '',
                 'align' => $field->align ?? 'left',
+                'onTable' => $field->onTable ?? true,
                 'options' => [],
              ];
              if ($field->type == "select") {
@@ -54,9 +61,6 @@ trait JsonToArray
              }
             }
         }
-        $values->titre = $titre;
-        $values->icone = $icone;
-        $values->sort = $sort;
         $values->rules = $rules;
         $values->titres = $titres;
         $values->champs = $champs;

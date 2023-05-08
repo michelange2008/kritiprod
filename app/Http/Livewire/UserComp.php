@@ -19,6 +19,11 @@ class UserComp extends ItemComp
         return User::where('name', 'LIKE', "%{$this->search}%")->orderBy('name')->get();
     }
     
+    public function showItem($id)
+    {
+        $this->item =User::find($id);
+    }
+
     public function createItem()
     {
         User::create($this->state);
