@@ -3,9 +3,19 @@
     <x-titres.titre :icone="$parametres->icone">Paramétrage de {{ $parametres->titre }} </x-titres.titre>
 
     <div class="p-3">
-        <form action="{{ route('dev.update', $model)}}" method="POST">
+        <form action="{{ route('dev.update', $model) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="flex flex-col gap-3">
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="my-2 flex flex-col gap-1">
+                        <label for="titre">Intitulé de l'item</label>
+                        <input type="text" name="titre">
+                    </div>
+                    <div class="my-2 flex flex-col gap-1">
+                        <label for="icone">Icone de l'item</label>
+                        <input class="bg-teal-700 text-white p-2 " type="file" name="icone" value="choisir">
+                    </div>
+                </div>
                 <div>
                     <input id="show" class="rounded text-teal-800" name="show" type="checkbox"
                         checked="{{ $parametres->show }}">
@@ -38,16 +48,18 @@
                                 </div>
                                 <div class="my-2 flex flex-col gap-1">
                                     <label for="field">Nom de la colonne dans la bdd</label>
-                                    <input id="field" class="bg-slate-200" type="text" name="{{ $col }}_field" disabled
-                                        value="{{ $champ->field }}">
+                                    <input id="field" class="bg-slate-200" type="text"
+                                        name="{{ $col }}_field" disabled value="{{ $champ->field }}">
                                 </div>
                                 <div class="my-2 flex flex-col gap-1">
                                     <label for="label">Intitulé de ce champ</label>
-                                    <input id="label" type="text" name="{{ $col }}_label" value="{{ $champ->label }}">
+                                    <input id="label" type="text" name="{{ $col }}_label"
+                                        value="{{ $champ->label }}">
                                 </div>
                                 <div class="my-2 flex flex-col gap-1">
                                     <label for="rules">Règles ( séparer chaque règle par | )</label>
-                                    <input id="rules" type="text" name="{{ $col }}_rules" value="{{ $champ->rules }}">
+                                    <input id="rules" type="text" name="{{ $col }}_rules"
+                                        value="{{ $champ->rules }}">
                                 </div>
                                 <div class="my-2 flex flex-col gap-1">
                                     <label for="align">Alignement dans le tableau</label>
@@ -74,7 +86,8 @@
                                 @if ($champ->type == 'select')
                                     <div class="my-2 flex flex-col gap-1">
                                         <label for="table">Table de la liste déroulante</label>
-                                        <input id="table" type="text" name="{{ $col }}_table" value="{{ $champ->table }}">
+                                        <input id="table" type="text" name="{{ $col }}_table"
+                                            value="{{ $champ->table }}">
                                     </div>
                                     <div class="my-2 flex flex-col gap-1">
                                         <label for="belongsTo">Modèle correspondant</label>
