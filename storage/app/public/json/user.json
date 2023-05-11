@@ -1,0 +1,44 @@
+{
+    "titre": "Utilisateurs",
+    "icone": "user.svg",
+    "sort": "name",
+    "show": true,
+    "add": false,
+    "champs": {
+        "id": {
+            "type": "hidden",
+            "field": "id",
+            "label": "Id",
+            "rules": "required",
+            "align" : "center",
+            "onTable": true
+        },
+        "name": {
+            "type": "text",
+            "field": "name",
+            "label": "Nom",
+            "rules": "required|max:191|string",
+            "align" : "left",
+            "onTable": true
+        },
+        "role_id": {
+            "type": "select",
+            "field": "role_id",
+            "label": "Role",
+            "rules": "required",
+            "align" : "center",
+            "onTable": true,
+            "table" : "roles",
+            "belongsTo" : "role",
+            "coltable" : "nom"
+        },
+        "created_at": {
+            "type": "date",
+            "field": "created_at",
+            "label": "Date de création",
+            "rules": "",
+            "align": "center",
+            "onTable": false
+        }
+    }
+}

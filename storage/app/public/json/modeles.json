@@ -1,0 +1,58 @@
+{
+    "accessible" : {
+        "model" : "accessible",
+        "nom" : "Accessibilité"
+    },
+    "application" : {
+        "model" : "application",
+        "nom" : "Applications"
+    },
+    "brutedata" : {
+        "model" : "brutedata",
+        "nom" : "Données brutes"
+    },
+    "brutetype" : {
+        "model" : "brutetype",
+        "nom" : "Type de données brutes"
+    },
+    "contenu": {
+        "model" : "contenu",
+        "nom" : "Contenu"
+    },
+    "format": {
+        "model" : "format",
+        "nom" : "Format"
+    },
+    "localisation" : {
+        "model" : "localisation",
+        "nom" : "Localisation"
+    },
+    "nature": {
+        "model" : "nature",
+        "nom" : "Nature des données"
+    },
+    "periode" : {
+        "model" : "periode",
+        "nom" : "Périodes"
+    },
+    "role" : {
+        "model" : "role",
+        "nom" : "Rôles"
+    },
+    "source" : {
+        "model" : "source",
+        "nom" : "Sources"
+    },
+    "soustype" : {
+        "model" : "soustype",
+        "nom" : "Sous-types"
+    },
+    "type" : {
+        "model" : "type",
+        "nom" : "Types"
+    },
+    "user" : {
+        "model" : "user",
+        "nom" : "Utilisateurs"
+    }
+}
