@@ -22,7 +22,7 @@
             </div>    
         </div>
         <div class="flex justify-end">
-            <x-buttons.cancel-button x-on:click="see = false"><x-icones.close></x-icones.close> Fermer</x-buttons.cancel-button>
+            <x-buttons.cancel-button x-on:click="see = false" :route="'#'"><x-icones.close></x-icones.close> Fermer</x-buttons.cancel-button>
         </div>
     </x-modal-small>
 

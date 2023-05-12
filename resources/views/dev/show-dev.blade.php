@@ -7,20 +7,20 @@
             @csrf
             <div class="flex flex-col gap-3">
                 <div class="grid grid-cols-1 gap-3">
-                    <div class="my-2 flex flex-col gap-1 w-full sm:w-1/2 lg:w-1/3">
+                    <div class="my-2 flex flex-col gap-1 w-full sm:w-1/2 lg:w-1/3 border-2 p-2">
                         <label for="titre">Intitulé de l'item</label>
-                        <input class="inline-block" type="text" name="titre">
+                        <input class="inline-block" type="text" name="titre" value="{{ $parametres->titre }}">
                     </div>
 
-                    <x-forms.input-file-classic :class="'w-full sm:w-1/2 lg:w-1/3'" :label="'Icone de l\'item'"></x-forms.input-file-classic>
+                    <x-forms.input-file-classic :class="'w-full sm:w-1/2 lg:w-1/3 border-2 p-2'" :label="'Icone de l\'item'"></x-forms.input-file-classic>
 
                 </div>
-                <div>
+                <div class="my-3">
                     <input id="show" class="rounded text-teal-800" name="show" type="checkbox"
                         checked="{{ $parametres->show }}">
                     <label for="show">Pouvoir afficher les détails</label>
                 </div>
-                <div>
+                <div class="my-3">
                     <input id="add" class="rounded text-teal-800" name="add" type="checkbox"
                         checked="{{ $parametres->add }}">
                     <label for="show">Pouvoir ajouter un item</label>
@@ -32,7 +32,7 @@
                     @foreach ($parametres->champs as $col => $champ)
                         <div class="my-3 bg-slate-200 border-2 p-3">
                             <p class="font-bold">{{ $champ->label }}</p>
-                            <div class="grid grid-cols-3 gap-3">
+                            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
 
                                 <div class="my-2 flex flex-col gap-1">
                                     <label for="type">Type de champ</label>
@@ -56,7 +56,8 @@
                                         value="{{ $champ->label }}">
                                 </div>
                                 <div class="my-2 flex flex-col gap-1">
-                                    <label for="rules">Règles ( séparer chaque règle par | )</label>
+                                    <label for="rules">Règles <span class="invisible sm:visible">( séparer chaque
+                                            règle par | )</span></label>
                                     <input id="rules" type="text" name="{{ $col }}_rules"
                                         value="{{ $champ->rules }}">
                                 </div>
@@ -105,7 +106,8 @@
                 </div>
             </div>
 
-            <x-buttons.success-button>Enregistrer</x-buttons.success-button>
+            <x-buttons.success-button><x-icones.save></x-icones.save> Enregistrer</x-buttons.success-button>
+            <x-buttons.cancel-button :route="route('dev.index')"><x-icones.return></x-icones.return> Annuler</x-buttons.cancel-button>
         </form>
     </div>
 

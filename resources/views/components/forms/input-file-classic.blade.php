@@ -20,7 +20,8 @@
 
     </template>
 
-    <input accept="image/*" @change="fileChosen" class="shrink bg-gray-700 text-white p-2 " type="file" name="icone" value="choisir">
+        <input accept="image/*" @change="fileChosen" class="border-2 text-gray-400 p-2 " type="file" name="icone" value="choisir">
+    </div>
 
     <script>
         function imageViewer() {

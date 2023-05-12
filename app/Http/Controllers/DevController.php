@@ -59,10 +59,12 @@ class DevController extends Controller
     {
         $model_json = (object) $this->litJson($model);
         $datas['titre'] = $request->titre ?? $model_json->titre;
-        if ($request->icone->isValid()) {
+        if ( $request->icone != null && $request->icone->isValid()) {
             $icone_name = strtolower($datas['titre']).".".$request->icone->extension();
             $datas['icone'] = $icone_name ?? $model_json->icone;
             $request->icone->storeAs('public/img/icones', $icone_name);
+        } else {
+            $datas['icone'] = $model_json->icone;
         }
 
         $datas['sort'] = $request->sort ?? $model_json->sort;
