@@ -6,15 +6,14 @@
         <form action="{{ route('dev.update', $model) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="flex flex-col gap-3">
-                <div class="grid grid-cols-2 gap-3">
-                    <div class="my-2 flex flex-col gap-1">
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="my-2 flex flex-col gap-1 w-full sm:w-1/2 lg:w-1/3">
                         <label for="titre">Intitulé de l'item</label>
-                        <input type="text" name="titre">
+                        <input class="inline-block" type="text" name="titre">
                     </div>
-                    <div class="my-2 flex flex-col gap-1">
-                        <label for="icone">Icone de l'item</label>
-                        <input class="bg-teal-700 text-white p-2 " type="file" name="icone" value="choisir">
-                    </div>
+
+                    <x-forms.input-file-classic :class="'w-full sm:w-1/2 lg:w-1/3'" :label="'Icone de l\'item'"></x-forms.input-file-classic>
+
                 </div>
                 <div>
                     <input id="show" class="rounded text-teal-800" name="show" type="checkbox"
