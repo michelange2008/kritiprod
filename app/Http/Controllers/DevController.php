@@ -52,7 +52,14 @@ class DevController extends Controller
 
     public function add($model)
     {
-        // fopen('storage/json/essai.json', 'c+');
+        $template = (object) $this->litJson('template');
+        $template_champs = (object) $this->litJson('template_champs');
+
+        return view('dev.add-dev', [
+            'template' => $template,
+            'template_champs' => $template_champs,
+        ]);
+
     }
 
     public function update(Request $request, $model)
@@ -74,16 +81,16 @@ class DevController extends Controller
         foreach ($model_json->champs as $col => $champ)
         {
             $datas['champs'][$col]['type'] = $request->{$col."_type"};
-            $datas['champs'][$col]['field'] = $request->{$col."_field"};
+            $datas['champs'][$col]['field'] = $model_json->champs->{$col}->field;
             $datas['champs'][$col]['label'] = $request->{$col."_label"};
             $datas['champs'][$col]['rules'] = $request->{$col."_rules"};
             $datas['champs'][$col]['align'] = $request->{$col."_align"};
-            $datas['champs'][$col]['onTable'] = $request->{$col."_onTable"};
+            $datas['champs'][$col]['onTable'] = ($request->{$col."_onTable"} == "1") ? true : false;
 
             if ($request->{$col."_type"} == 'select') {
                 $datas['champs'][$col]['table'] = $request->{$col."_table"};
                 $datas['champs'][$col]['belongsTo'] = $request->{$col."_belongsTo"};
-                $datas['champs'][$col]['coltable'] = $request->{$col."_coltable"};
+                $datas['champs'][$col]['coltable'] = ($request->{$col."_coltable"} == "1") ? true : false;
             }
         }
         $new_json = json_encode($datas, JSON_UNESCAPED_UNICODE);

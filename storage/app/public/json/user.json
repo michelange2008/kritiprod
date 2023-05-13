@@ -1,1 +1,44 @@
-{"titre":"Utilisateurs","icone":"user.svg","sort":"name","show":true,"add":false,"champs":{"id":{"type":"hidden","field":null,"label":"Id","rules":"required","align":"center","onTable":"1"},"name":{"type":"text","field":null,"label":"Nom","rules":"required|max:191|string","align":"left","onTable":"1"},"role_id":{"type":"select","field":null,"label":"Role","rules":"required","align":"center","onTable":"1","table":"roles","belongsTo":"role","coltable":"nom"},"created_at":{"type":"date","field":null,"label":"Date de création","rules":null,"align":"center","onTable":"0"}}}
+{
+    "titre": "Utilisateurs",
+    "icone": "user.svg",
+    "sort": "name",
+    "show": true,
+    "add": false,
+    "champs": {
+        "id": {
+            "type": "hidden",
+            "field": "id",
+            "label": "Id",
+            "rules": "required",
+            "align": "center",
+            "onTable": "1"
+        },
+        "name": {
+            "type": "text",
+            "field": "name",
+            "label": "Nom",
+            "rules": "required|max:191|string",
+            "align": "left",
+            "onTable": "1"
+        },
+        "role_id": {
+            "type": "select",
+            "field": "role_id",
+            "label": "Role",
+            "rules": "required",
+            "align": "center",
+            "onTable": "1",
+            "table": "roles",
+            "belongsTo": "role",
+            "coltable": "nom"
+        },
+        "created_at": {
+            "type": "date",
+            "field": "created_at",
+            "label": "Date de création",
+            "rules": "",
+            "align": "center",
+            "onTable": "0"
+        }
+    }
+}
