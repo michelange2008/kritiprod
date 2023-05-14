@@ -8,7 +8,7 @@ class LocalisationComp extends ItemComp
 {
 
 
-    public function mount()
+    public function mount($item = '')
     {
         parent::mount();
         $this->initDatas('localisation'); // prend dans le json toutes les infos propres à cet item

@@ -8,7 +8,7 @@ class PeriodeComp extends ItemComp
 {
     public array $rules = [];
 
-    public function mount()
+    public function mount($item = '')
     {
         parent::mount();
         $this->initDatas('periode'); // prend dans le json toutes les infos propres à cet item

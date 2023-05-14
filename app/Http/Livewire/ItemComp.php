@@ -14,6 +14,9 @@ abstract class ItemComp extends Component
 
     public $items;
     public $item;
+    public $table;
+    public $model;
+    public $modelWithPath;
     public array $state = [];
     public array $titres = [];
     public array $champs = [];
@@ -29,7 +32,7 @@ abstract class ItemComp extends Component
 
     protected array $rules = [];
 
-    public function mount()
+    public function mount($model)
     {
         $this->items = $this->getItems();
     }

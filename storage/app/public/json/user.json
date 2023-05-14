@@ -11,15 +11,15 @@
             "label": "Id",
             "rules": "required",
             "align": "center",
-            "onTable": "1"
+            "onTable": true
         },
         "name": {
             "type": "text",
             "field": "name",
             "label": "Nom",
             "rules": "required|max:191|string",
-            "align": "left",
-            "onTable": "1"
+            "align": "right",
+            "onTable": true
         },
         "role_id": {
             "type": "select",
@@ -27,7 +27,7 @@
             "label": "Role",
             "rules": "required",
             "align": "center",
-            "onTable": "1",
+            "onTable": true,
             "table": "roles",
             "belongsTo": "role",
             "coltable": "nom"
@@ -36,9 +36,9 @@
             "type": "date",
             "field": "created_at",
             "label": "Date de création",
-            "rules": "",
+            "rules": null,
             "align": "center",
-            "onTable": "0"
+            "onTable": true
         }
     }
 }

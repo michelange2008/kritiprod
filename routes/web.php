@@ -7,6 +7,7 @@ use App\Http\Livewire\AccessibleComp;
 use App\Http\Livewire\ApplicationComp;
 use App\Http\Livewire\LocalisationComp;
 use App\Http\Livewire\PeriodeComp;
+use App\Http\Livewire\DetailComp;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,11 +35,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    Route::get('admin/user', UserComp::class)->name('admin.user');
-    Route::get('admin/accessible', AccessibleComp::class)->name('admin.accessible');
-    Route::get('admin/application', ApplicationComp::class)->name('admin.application');
-    Route::get('admin/localisation', LocalisationComp::class)->name('admin.localisation');
-    Route::get('admin/periode', PeriodeComp::class)->name('admin.periode');
+    // Route générique pour l'affichage de chaque table
+    Route::get('admin/{model}', DetailComp::class)->name('admin.{model}');
+
 
     Route::get('dev', [DevController::class, 'index'])->name('dev.index');
     Route::get('dev/{model}', [DevController::class, 'show'])->name('dev.show');

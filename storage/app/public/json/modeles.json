@@ -7,8 +7,8 @@
         "model" : "application",
         "nom" : "Applications"
     },
-    "brutedata" : {
-        "model" : "brutedata",
+    "brutesdata" : {
+        "model" : "brutesdata",
         "nom" : "Données brutes"
     },
     "brutetype" : {

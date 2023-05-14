@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Traits;
 
 use Illuminate\Support\Facades\DB;
@@ -39,33 +40,33 @@ trait JsonToArray
         // Il faut convertir les objets issus du json en array
         $fields = (array) $datas->champs;
         foreach ($fields as $key => $field) {
-             $rules[$key] = $field->rules;
-             $titres[$key] = [
+            $rules[$key] = $field->rules;
+            $titres[$key] = [
                 'label' => $field->label ?? "intitulé",
                 'onTable' => $field->onTable ?? true,
             ];
-             $champs[$key] = [
+            $champs[$key] = [
                 'type' => $field->type ?? 'text',
                 'field' => $field->field ?? '',
                 'label' => $field->label ?? '',
                 'align' => $field->align ?? 'left',
                 'onTable' => $field->onTable ?? true,
                 'options' => [],
-             ];
-             if ($field->type == "select") {
-                $champs[$key]['belongsTo'] = $field->belongsTo ?? ''; 
-                $champs[$key]['coltable'] = $field->coltable ?? ''; 
-             $options = DB::table($field->table)->get();
-             foreach ($options as $option) {
-                 $champs[$key]['options'][$option->id] = $option->{$field->coltable};
-             }
+            ];
+            if ($field->type == "select") {
+                $champs[$key]['belongsTo'] = $field->belongsTo ?? '';
+                $champs[$key]['coltable'] = $field->coltable ?? '';
+                $options = DB::table($field->table)->get();
+                foreach ($options as $option) {
+                    $champs[$key]['options'][$option->id] = $option->{$field->coltable};
+                }
             }
         }
+
         $values->rules = $rules;
         $values->titres = $titres;
         $values->champs = $champs;
 
         return $values;
     }
-    
 }

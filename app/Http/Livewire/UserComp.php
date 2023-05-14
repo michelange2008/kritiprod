@@ -8,7 +8,7 @@ class UserComp extends ItemComp
 {
     public array $rules;
     
-    public function mount()
+    public function mount($item = '')
     {
         parent::mount();
         $this->initDatas('user');

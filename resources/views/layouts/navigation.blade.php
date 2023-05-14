@@ -15,16 +15,7 @@
                     {{ ucfirst('accueil') }}
                 </x-nav-link>
 
-                <x-dropdown-perso :haut="'admin'" :bas="[
-                    ['name' => 'user', 'route' => 'admin.user'],
-                    ['name' => 'accessible', 'route' => 'admin.accessible'],
-                    ['name' => 'application', 'route' => 'admin.application'],
-                    ['name' => 'localisation', 'route' => 'admin.localisation'],
-                    ['name' => 'periode', 'route' => 'admin.periode'],
-                    // ['name' => 'produits', 'route' => 'produits.index'],
-                    // ['name' => 'preps', 'route' => 'preparations.index'],
-                    // ['name' => 'aromaform', 'route' => 'home'],
-                ]"></x-dropdown-perso>
+                <x-dropdown-perso :haut="'admin'" :bas="\Storage::json('public/json/nav_admin.json')"></x-dropdown-perso>
 
                 <x-nav-link :href="route('dev.index')" :active="request()->routeIs('dev.index')">
                     {{ ucfirst('dev') }}

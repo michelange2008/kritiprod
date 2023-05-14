@@ -6,7 +6,7 @@ use App\Models\Application;
 
 class ApplicationComp extends ItemComp
 {
-    public function mount()
+    public function mount($item = '')
     {
         parent::mount();
         $this->initDatas('application');
