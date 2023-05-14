@@ -31,7 +31,7 @@ trait JsonToArray
     {
         $values = new Collection();
         $datas = (object) $this->litJson($json);
-
+        
         $values->titre = $datas->titre ?? "Liste des items";
         $values->icone = $datas->icone ?? "default.svg";
         $values->sort = $datas->sort ?? 'id';

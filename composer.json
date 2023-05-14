@@ -15,6 +15,7 @@
         "livewire/livewire": "^2.12"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.13",
         "fakerphp/faker": "^1.9.1",
         "jeroenzwart/laravel-csv-seeder": "^1.6",
         "laravel/breeze": "^1.20",
