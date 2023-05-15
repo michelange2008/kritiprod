@@ -13,19 +13,19 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
        $this->call([
-           // RolesTableSeeder::class,
+           RolesTableSeeder::class,
         AccessiblesTableSeeder::class,
-        // ApplicationsTableSeeder::class,
-        // BrutetypesTableSeeder::class,
-        // FormatsTableSeeder::class,
-        // LocalisationsTableSeeder::class,
-        // NaturesTableSeeder::class,
-        // PeriodesTableSeeder::class,
-        // SourcesTableSeeder::class,
-        // TypesTableSeeder::class,
-        // SoustypesTableSeeder::class,
-        // ContenusTableSeeder::class,
-        // BrutedatasTableSeeder::class,
+        ApplicationsTableSeeder::class,
+        BrutetypesTableSeeder::class,
+        FormatsTableSeeder::class,
+        LocalisationsTableSeeder::class,
+        NaturesTableSeeder::class,
+        PeriodesTableSeeder::class,
+        SourcesTableSeeder::class,
+        TypesTableSeeder::class,
+        SoustypesTableSeeder::class,
+        ContenusTableSeeder::class,
+        BrutedatasTableSeeder::class,
        ]);
     }
 }
