@@ -22,7 +22,7 @@
                                     {{ ucfirst($item->{$champ['belongsTo']}->{$champ['coltable']}) }}
                                 </td>
                             @elseif ($champ['type'] == 'date')
-                                <p>{{ $champ['label'] }}: {{ date('d/m/Y', strtotime($item->$col)) }} </p>
+                                <td class="p-2 border-2 text-{{ $champ['align'] }}">{{ date('d/m/Y', strtotime($item->$field)) }} </td>
                             @else
                                 <td class="p-2 border-2 text-{{ $champ['align'] }}">{{ $item->$field }} </td>
                             @endif

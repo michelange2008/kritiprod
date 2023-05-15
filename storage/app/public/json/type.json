@@ -1,0 +1,1 @@
+{"titre":"Types de données","icone":"type.svg","sort":"","show":false,"add":true,"champs":{"id":{"type":"text","field":"id","label":"Id","rules":"required","align":"center","onTable":true},"nom":{"type":"text","field":"nom","label":"Nom","rules":"required|string|max:191","align":"left","onTable":true}}}

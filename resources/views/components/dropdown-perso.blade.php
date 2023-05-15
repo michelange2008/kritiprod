@@ -18,8 +18,8 @@
 
                     <x-slot name="content">
                         @foreach ($bas as $item)
-                            <x-dropdown-link :href="route($item['route'])">
-                                {{ ucfirst(__('menu.' . $item['name'])) }}
+                            <x-dropdown-link :href="url($item['url'])">
+                                {{ ucfirst($item['intitule']) }}
                             </x-dropdown-link>
                         @endforeach
 

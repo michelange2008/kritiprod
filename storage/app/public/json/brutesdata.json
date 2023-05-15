@@ -1,0 +1,96 @@
+{
+    "titre": "Données brutes",
+    "icone": "brutesdata.svg",
+    "sort": "",
+    "show": true,
+    "add": true,
+    "champs": {
+        "id": {
+            "type": "text",
+            "field": "id",
+            "label": "Id",
+            "rules": "required",
+            "align": "center",
+            "onTable": false
+        },
+        "contenu_id": {
+            "type": "select",
+            "field": "contenu_id",
+            "label": "Contenu",
+            "rules": null,
+            "align": "left",
+            "onTable": true,
+            "table": "contenus",
+            "belongsTo": "contenu",
+            "coltable": "description"
+        },
+        "brutetype_id": {
+            "type": "select",
+            "field": "brutetype_id",
+            "label": "Type brut",
+            "rules": null,
+            "align": "left",
+            "onTable": true,
+            "table": "brutetypes",
+            "belongsTo": "brutetype",
+            "coltable": "nom"
+        },
+        "naturedatas": {
+            "type": "text",
+            "field": "naturedatas",
+            "label": "Nature des données",
+            "rules": "required|string|max:191",
+            "align": "left",
+            "onTable": true
+        },
+        "accessible_id": {
+            "type": "select",
+            "field": "accessible_id",
+            "label": "Accessibilité",
+            "rules": null,
+            "align": "left",
+            "onTable": false,
+            "table": "accessibles",
+            "belongsTo": "accessible",
+            "coltable": "nom"
+        },
+        "qualite": {
+            "type": "text",
+            "field": "qualite",
+            "label": "Qualité des données",
+            "rules": "required|string|max:191",
+            "align": "left",
+            "onTable": false
+        },
+        "adventices": {
+            "type": "text",
+            "field": "adventices",
+            "label": "Adventices",
+            "rules": "required|string|max:191",
+            "align": "left",
+            "onTable": false
+        },
+        "format_id": {
+            "type": "select",
+            "field": "format_id",
+            "label": "Format des données",
+            "rules": null,
+            "align": "left",
+            "onTable": false,
+            "table": "formats",
+            "belongsTo": "format",
+            "coltable": "nom"
+        },
+        "application_id": {
+            "type": "select",
+            "field": "application_id",
+            "label": "Applications",
+            "rules": null,
+            "align": "left",
+            "onTable": false,
+            "table": "applications",
+            "belongsTo": "application",
+            "coltable": "nom"
+        }
+    }
+}

@@ -4,8 +4,6 @@
             Désolé... Cet item n'a pas encore été configuré !
 
         </h1>
-        <a href="{{route('dev.index')}}">
-            <x-buttons.cancel-button>Retour</x-buttons.cancel-button>
-        </a>
+            <x-buttons.cancel-button :route="route('dev.index')">Retour</x-buttons.cancel-button>
     </div>
 </x-app-layout>

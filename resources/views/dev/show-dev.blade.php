@@ -1,91 +1,70 @@
 <x-app-layout>
 
-    <x-titres.titre :icone="$parametres->icone">Paramétrage de {{ $parametres->titre }} </x-titres.titre>
+    <x-titres.titre :icone="$parametres->icone">Paramétrage de "{{ $model }}" </x-titres.titre>
 
     <div class="p-3">
-        <form action="{{ route('dev.update', $model)}}" method="POST">
+        <form action="{{ route('dev.update', $model) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="flex flex-col gap-3">
+            <p class="font-bold">Paramétrage global</p>
+            <div class="grid sm:grid-cols-2 gap-3">
                 <div>
-                    <input id="show" class="rounded text-teal-800" name="show" type="checkbox"
-                        checked="{{ $parametres->show }}">
-                    <label for="show">Pouvoir afficher les détails</label>
-                </div>
-                <div>
-                    <input id="add" class="rounded text-teal-800" name="add" type="checkbox"
-                        checked="{{ $parametres->add }}">
-                    <label for="show">Pouvoir ajouter un item</label>
+                    <x-forms.input-classic class="border-2 p-2" :name="'titre'" :label="'Intitulé de l\'item'" :value="$parametres->titre">
+                    </x-forms.input-classic>
+
+                    <x-forms.input-checkbox-classic name="show" label="Pouvoir afficher les détails" :checked="$parametres->show">
+                    </x-forms.input-checkbox-classic>
+
+                    <x-forms.input-checkbox-classic name="add" label="Pouvoir ajouter un item" :checked="$parametres->add">
+                    </x-forms.input-checkbox-classic>
                 </div>
 
+                <x-forms.input-file-classic class="border-2 p-2" :label="'Icone de l\'item'">
+                </x-forms.input-file-classic>
+
+                <hr class="border-t-4 border-gray-500 my-3">
                 <p class="font-bold">Paramétrage de chaque champ</p>
 
                 <div>
                     @foreach ($parametres->champs as $col => $champ)
                         <div class="my-3 bg-slate-200 border-2 p-3">
                             <p class="font-bold">{{ $champ->label }}</p>
-                            <div class="grid grid-cols-3 gap-3">
 
-                                <div class="my-2 flex flex-col gap-1">
-                                    <label for="type">Type de champ</label>
-                                    <select name="{{ $col }}_type" id="type">
-                                        @foreach ($inputs as $input => $intitule)
-                                            <option @if ($input == $champ->type) selected @endif
-                                                value="{{ $input }}">
-                                                {{ $intitule }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="my-2 flex flex-col gap-1">
-                                    <label for="field">Nom de la colonne dans la bdd</label>
-                                    <input id="field" class="bg-slate-200" type="text" name="{{ $col }}_field" disabled
-                                        value="{{ $champ->field }}">
-                                </div>
-                                <div class="my-2 flex flex-col gap-1">
-                                    <label for="label">Intitulé de ce champ</label>
-                                    <input id="label" type="text" name="{{ $col }}_label" value="{{ $champ->label }}">
-                                </div>
-                                <div class="my-2 flex flex-col gap-1">
-                                    <label for="rules">Règles ( séparer chaque règle par | )</label>
-                                    <input id="rules" type="text" name="{{ $col }}_rules" value="{{ $champ->rules }}">
-                                </div>
-                                <div class="my-2 flex flex-col gap-1">
-                                    <label for="align">Alignement dans le tableau</label>
-                                    <select name="{{ $col }}_align" id="align">
-                                        <option @if ($champ->align == 'left') selected @endif value="left">Gauche
-                                        </option>
-                                        <option @if ($champ->align == 'center') selected @endif value="center">Centre
-                                        </option>
-                                        <option @if ($champ->align == 'right') selected @endif value="right">Droit
-                                        </option>
-                                    </select>
-                                </div>
-                                <div class="my-2 flex flex-col gap-1">
-                                    <label for="label">Affichage dans le tableau</label>
-                                    <select name="{{ $col }}_onTable" id="onTable">
-                                        <option @if ($champ->onTable == 1) selected @endif value="1">Oui
-                                        </option>
-                                        <option @if ($champ->onTable == 0) selected @endif value="0">Non
-                                        </option>
-                                    </select>
-                                </div>
+                            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+                                <x-forms.select-classic :name="$col . '_type'" label="Type de champ" :options="\CONST::INPUT_TYPES"
+                                    :selected="$champ->type">
+                                </x-forms.select-classic>
+
+                                <x-forms.input-classic :name="$col . '_field'" label="Nom de la colonne dans la bdd"
+                                    :value="$champ->field" disabled=true>
+                                </x-forms.input-classic>
+
+                                <x-forms.input-classic :name="$col . '_label'" label="Intitulé de ce champ"
+                                    :value="$champ->label">
+                                </x-forms.input-classic>
+
+                                <x-forms.input-classic :name="$col . '_rules'" label="Règles (| séparateur)"
+                                    :value="$champ->rules">
+                                </x-forms.input-classic>
+
+                                <x-forms.select-classic :name="$col . '_align'" label="Alignement dans le tableau"
+                                    :options="\CONST::ALIGN" :selected="$champ->align">
+                                </x-forms.select-classic>
+
+                                <x-forms.select-classic :name="$col . '_onTable'" label="Affichage dans le tableau"
+                                    :options="\CONST::OUI_NON" :selected="$champ->onTable">
+                                </x-forms.select-classic>
                             </div>
+
                             <div class="my-2 bg-slate-300 p-2 grid grid-cols-3 gap-2">
                                 @if ($champ->type == 'select')
-                                    <div class="my-2 flex flex-col gap-1">
-                                        <label for="table">Table de la liste déroulante</label>
-                                        <input id="table" type="text" name="{{ $col }}_table" value="{{ $champ->table }}">
-                                    </div>
-                                    <div class="my-2 flex flex-col gap-1">
-                                        <label for="belongsTo">Modèle correspondant</label>
-                                        <input id="belongsTo" type="text" name="{{ $col }}_belongsTo"
-                                            value="{{ $champ->belongsTo }}">
-                                    </div>
-                                    <div class="my-2 flex flex-col gap-1">
-                                        <label for="coltable">Champ de la table</label>
-                                        <input id="coltable" type="text" name="{{ $col }}_coltable"
-                                            value="{{ $champ->coltable }}">
-                                    </div>
+                                    <x-forms.input-classic :name="$col . '_table'" :label="'Table de la liste déroulante'" :value="$champ->table">
+                                    </x-forms.input-classic>
+
+                                    <x-forms.input-classic :name="$col . '_belongsTo'" :label="'Modèle correspondant'" :value="$champ->belongsTo">
+                                    </x-forms.input-classic>
+
+                                    <x-forms.input-classic :name="$col . '_coltable'" :label="'Champ de la table'" :value="$champ->coltable">
+                                    </x-forms.input-classic>
                                 @endif
                             </div>
                         </div>
@@ -93,7 +72,12 @@
                 </div>
             </div>
 
-            <x-buttons.success-button>Enregistrer</x-buttons.success-button>
+            <x-buttons.success-button class="mx-3">
+                <x-icones.save></x-icones.save> Enregistrer
+            </x-buttons.success-button>
+            <x-buttons.cancel-button :route="route('dev.index')">
+                <x-icones.return></x-icones.return> Annuler
+            </x-buttons.cancel-button>
         </form>
     </div>
 

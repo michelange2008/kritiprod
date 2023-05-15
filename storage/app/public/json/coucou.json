@@ -1,0 +1,31 @@
+{
+    "titre": "",
+    "icone": "",
+    "sort": "",
+    "show": true,
+    "add": true,
+    "champs": {
+        "id": {
+            "type": "",
+            "field": "id",
+            "label": "",
+            "rules": "",
+            "align": "",
+            "onTable": true,
+            "table": "",
+            "belongsTo": "",
+            "coltable": ""
+        },
+        "nom": {
+            "type": "",
+            "field": "nom",
+            "label": "",
+            "rules": "",
+            "align": "",
+            "onTable": true,
+            "table": "",
+            "belongsTo": "",
+            "coltable": ""
+        }
+    }
+}
