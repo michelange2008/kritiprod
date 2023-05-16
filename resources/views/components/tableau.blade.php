@@ -19,7 +19,7 @@
                         @if ($champ['onTable'])
                             @if ($champ['type'] == 'select')
                                 <td class="p-2 border-2 text-{{ $champ['align'] }}">
-                                    {{ ucfirst($item->{$champ['belongsTo']}->{$champ['coltable']}) }}
+                                    {{ ucfirst($item->{$champ['belongsTo']}->{$champ['coltable']}) ?? " - " }}
                                 </td>
                             @elseif ($champ['type'] == 'date')
                                 <td class="p-2 border-2 text-{{ $champ['align'] }}">{{ date('d/m/Y', strtotime($item->$field)) }} </td>

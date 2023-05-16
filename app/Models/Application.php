@@ -25,7 +25,7 @@ class Application extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function brutedatas(): HasMany
+    public function brutesdatas(): HasMany
     {
         return $this->hasMany(Brutedata::class);
     }

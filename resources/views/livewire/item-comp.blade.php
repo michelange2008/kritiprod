@@ -18,7 +18,7 @@
                     @foreach ($champs as $col => $champ)
                         @if ($champ['type'] == 'select')
                             <p><span class="italic text-gray-600">{{ $champ['label'] }}: </span><span
-                                    class="font-bold">{{ $item->{$champ['belongsTo']}->{$champ['coltable']} }}</span></p>
+                                    class="font-bold">{{ $item->{$champ['belongsTo']}->{$champ['coltable']} ?? " - "}}</span></p>
                         @elseif ($champ['type'] == 'date')
                             <p><span class="italic text-gray-600">{{ $champ['label'] }}: </span> <span
                                     class="font-bold">{{ date('d/m/Y', strtotime($item->$col)) }}</span> </p>

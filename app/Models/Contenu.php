@@ -41,7 +41,7 @@ class Contenu extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function brutedatas()
+    public function brutesdatas()
     {
         return $this->hasMany(Brutedata::class);
     }

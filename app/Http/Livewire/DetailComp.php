@@ -40,7 +40,7 @@ class DetailComp extends ItemComp
 
     public function createItem()
     {
-        $this->model::create($this->state);
+        $this->modelWithPath::create($this->state);
     }
 
     public function updateItem()
