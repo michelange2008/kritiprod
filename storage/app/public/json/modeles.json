@@ -50,9 +50,5 @@
     "type" : {
         "model" : "type",
         "nom" : "Types"
-    },
-    "user" : {
-        "model" : "user",
-        "nom" : "Utilisateurs"
     }
 }

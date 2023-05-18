@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DevController;
+use App\Http\Controllers\MenuController;
 use App\Http\Livewire\UserComp;
 use App\Http\Livewire\AccessibleComp;
 use App\Http\Livewire\ApplicationComp;
@@ -36,13 +37,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     // Route générique pour l'affichage de chaque table
-    Route::get('admin/{model}', DetailComp::class)->name('admin.{model}');
+    Route::get('tables/{model}', DetailComp::class);
+    // Route pour l'administration du site
+    Route::prefix('admin')->group( function() {
+        Route::get('dev', [DevController::class, 'index'])->name('dev.index');
+        Route::get('dev/{model}', [DevController::class, 'show'])->name('dev.show');
+        Route::get('dev/add/{model}', [DevController::class, 'add'])->name('dev.add');
+        Route::post('dev/update/{model}', [DevController::class, 'update'])->name('dev.update');
 
+        Route::get('menus', [MenuController::class, 'index'])->name('menus.index');
+    });
 
-    Route::get('dev', [DevController::class, 'index'])->name('dev.index');
-    Route::get('dev/{model}', [DevController::class, 'show'])->name('dev.show');
-    Route::get('dev/add/{model}', [DevController::class, 'add'])->name('dev.add');
-    Route::post('dev/update/{model}', [DevController::class, 'update'])->name('dev.update');
 });
 
 require __DIR__.'/auth.php';

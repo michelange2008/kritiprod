@@ -15,11 +15,13 @@
                     {{ ucfirst('accueil') }}
                 </x-nav-link>
 
-                <x-dropdown-perso :haut="'admin'" :bas="\Storage::json('public/json/nav_admin.json')"></x-dropdown-perso>
+                <x-dropdown-perso :menu="\Storage::json('public/json/nav_tables.json')"></x-dropdown-perso>
 
-                <x-nav-link :href="route('dev.index')" :active="request()->routeIs('dev.index')">
+                <x-dropdown-perso :menu="\Storage::json('public/json/nav_admin.json')"></x-dropdown-perso>
+
+                {{-- <x-nav-link :href="route('dev.index')" :active="request()->routeIs('dev.index')">
                     {{ ucfirst('dev') }}
-                </x-nav-link>
+                </x-nav-link> --}}
 
 
                 {{-- <x-nav-link :href="route('visites')" :active="request()->routeIs('visites')">

@@ -1,0 +1,56 @@
+{
+    "menu": {
+        "intitule": "Tables",
+        "url": "tables"
+    },
+    "sousmenus": {
+        "accessible": {
+            "intitule": "Accessibilité",
+            "url": "accessible"
+        },
+        "application": {
+            "intitule": "Applications",
+            "url": "application"
+        },
+        "contenu": {
+            "url": "contenu",
+            "intitule": "Contenu"
+        },
+        "brutesdata": {
+            "url": "brutesdata",
+            "intitule": "Données brutes"
+        },
+        "format": {
+            "intitule": "Formats",
+            "url": "format"
+        },
+        "localisation": {
+            "intitule": "Localisations",
+            "url": "localisation"
+        },
+        "nature": {
+            "url": "nature",
+            "intitule": "Nature des données"
+        },
+        "periode": {
+            "intitule": "Périodes",
+            "url": "periode"
+        },
+        "source": {
+            "url": "source",
+            "intitule": "Sources"
+        },
+        "soustype": {
+            "url": "soustype",
+            "intitule": "Sous-types"
+        },
+        "type": {
+            "url": "type",
+            "intitule": "Types de données"
+        },
+        "brutetype": {
+            "url": "brutetype",
+            "intitule": "Types bruts"
+        }
+    }
+}

@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <x-titres.titre :icone="'liste.svg'">Liste des items</x-titres.titre>
+    <x-titres.titre :icone="'liste.svg'">Gestion des tables</x-titres.titre>
 
     <div>
         <table class="w-full">

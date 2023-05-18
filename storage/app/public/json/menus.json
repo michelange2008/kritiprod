@@ -1,0 +1,10 @@
+{
+    "tables" : {
+        "nom" : "Gestion des tables",
+        "file" : "nav_tables.json"
+    },
+    "admin" : {
+        "nom" : "Administration",
+        "file" : "nav_admin.json"
+    }
+}

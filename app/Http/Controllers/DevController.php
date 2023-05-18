@@ -103,14 +103,14 @@ class DevController extends Controller
         }
 
         $new_json = json_encode($datas, JSON_UNESCAPED_UNICODE);
-        
+        // Stocke sous forme de json, les informations pour la table correspondante
         Storage::disk('local')->put("public/json/".$model.".json", $new_json);
 
         // Modifie le menu admin
-        $nav_admin = Storage::disk('local')->json('public/json/nav_admin.json');
-        $nav_admin[$model]['url'] = "admin/".$model;
-        $nav_admin[$model]['intitule'] = $datas['titre'];
-        Storage::disk('local')->put('public/json/nav_admin.json', json_encode($nav_admin, JSON_UNESCAPED_UNICODE));
+        $nav_tables = Storage::disk('local')->json('public/json/nav_tables.json');
+        $nav_tables['sousmenus'][$model]['url'] = $model;
+        $nav_tables['sousmenus'][$model]['intitule'] = $datas['titre'];
+        Storage::disk('local')->put('public/json/nav_tables.json', json_encode($nav_tables, JSON_UNESCAPED_UNICODE));
 
         return redirect()->route('dev.index');
     }
