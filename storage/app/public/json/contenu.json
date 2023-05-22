@@ -1,1 +1,88 @@
-{"titre":"Contenu","icone":"contenu.svg","sort":"","show":true,"add":true,"champs":{"id":{"type":"text","field":"id","label":"Id","rules":"required","align":"left","onTable":false},"localisation_id":{"type":"select","field":"localisation_id","label":"Localisation","rules":null,"align":"left","onTable":true,"table":"localisations","belongsTo":"localisation","coltable":"nom"},"source_id":{"type":"select","field":"source_id","label":"Source","rules":null,"align":"left","onTable":true,"table":"sources","belongsTo":"source","coltable":"nom"},"soustype_id":{"type":"select","field":"soustype_id","label":"Sous-type","rules":null,"align":"left","onTable":true,"table":"soustypes","belongsTo":"soustype","coltable":"nom"},"periode_id":{"type":"select","field":"periode_id","label":"Période","rules":null,"align":"left","onTable":true,"table":"periodes","belongsTo":"periode","coltable":"nom"},"nature_id":{"type":"select","field":"nature_id","label":"Nature des données","rules":null,"align":"left","onTable":true,"table":"natures","belongsTo":"nature","coltable":"nom"},"description":{"type":"text","field":"description","label":"Description","rules":"required|string|max:65000","align":"left","onTable":true},"formalisees":{"type":"text","field":"formalisees","label":"Données formalisées","rules":"required|string|max:65000","align":"left","onTable":true}}}
+{
+    "titre": "Contenu",
+    "icone": "contenu.svg",
+    "sort": "",
+    "show": true,
+    "add": true,
+    "champs": {
+        "id": {
+            "type": "text",
+            "field": "id",
+            "label": "Id",
+            "rules": "required",
+            "align": "left",
+            "onTable": false
+        },
+        "localisation_id": {
+            "type": "select",
+            "field": "localisation_id",
+            "label": "Localisation",
+            "rules": null,
+            "align": "left",
+            "onTable": true,
+            "table": "localisations",
+            "belongsTo": "localisation",
+            "coltable": "nom"
+        },
+        "source_id": {
+            "type": "select",
+            "field": "source_id",
+            "label": "Source",
+            "rules": null,
+            "align": "left",
+            "onTable": true,
+            "table": "sources",
+            "belongsTo": "source",
+            "coltable": "nom"
+        },
+        "soustype_id": {
+            "type": "select",
+            "field": "soustype_id",
+            "label": "Sous-type",
+            "rules": null,
+            "align": "left",
+            "onTable": true,
+            "table": "soustypes",
+            "belongsTo": "soustype",
+            "coltable": "nom"
+        },
+        "periode_id": {
+            "type": "select",
+            "field": "periode_id",
+            "label": "Période",
+            "rules": null,
+            "align": "left",
+            "onTable": true,
+            "table": "periodes",
+            "belongsTo": "periode",
+            "coltable": "nom"
+        },
+        "nature_id": {
+            "type": "select",
+            "field": "nature_id",
+            "label": "Nature des données",
+            "rules": null,
+            "align": "left",
+            "onTable": true,
+            "table": "natures",
+            "belongsTo": "nature",
+            "coltable": "nom"
+        },
+        "description": {
+            "type": "text",
+            "field": "description",
+            "label": "Description",
+            "rules": "required|string|max:65000",
+            "align": "left",
+            "onTable": true
+        },
+        "formalisees": {
+            "type": "text",
+            "field": "formalisees",
+            "label": "Données formalisées",
+            "rules": "required|string|max:65000",
+            "align": "left",
+            "onTable": true
+        }
+    }
+}
