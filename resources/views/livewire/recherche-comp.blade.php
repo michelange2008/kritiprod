@@ -32,9 +32,7 @@
 
             <button class="btn bg-slate-500" x-on:click="localisation = !localisation">Localisations</button>
             <ul class="my-2" x-cloak x-show='localisation'>
-                @php
-                    var_dump($choices)
-                @endphp
+
                 <li>
                     <input type="radio" name="Localisation"
                             wire:change="toggleValues('Localisation', 'all')"
@@ -52,8 +50,8 @@
                     <li>
                         <input type="checkbox" wire:change="addValue('Localisation', {{$localisation->id}})"
                             value="{{ $localisation }}"
-                            @isset($choices)
-                                @if (in_array($localisation->id, $choices))
+                            @isset($choices['Localisation'])
+                                @if (in_array($localisation->id, $choices['Localisation']))
                                     checked
                                 @endif
                             @endisset>
@@ -69,7 +67,7 @@
             <div class="flex flex-row gap-2 bg-yellow-900 rounded-md px-3 mb-2">
                 <img class="w-8" src="{{ url('storage/img/icones/' . $subject['icone'] ?? 'default.svg') }}"
                     alt="icone">
-                <h2 class="h2 p-3 text-gray-200">{{ $subject['titre'] ?? 'Recherche' }}</h2>
+                <h2 class="h2 p-3 text-gray-200">{{ $subject['titre'] ?? 'Recherche' }} ({{ $records->count() }})</h2>
             </div>
         @else
             <div class="flex flex-row gap-2   px-3 mb-2">

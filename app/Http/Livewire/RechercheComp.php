@@ -21,6 +21,7 @@ class RechercheComp extends Component
     public $table;
     public $columns;
     public $selectedColumns = [];
+    public $linkedModels = [];
     public $state = [];
     public $choices = [];
 
@@ -50,7 +51,11 @@ class RechercheComp extends Component
         $this->columns = $this->subject['champs'];
         foreach ($this->columns as $field => $infos) {
             $this->columns[$field]['visible'] = true;
+            if ($infos['type'] == 'select' ) {
+                $this->linkedModels[ucfirst($infos['belongsTo'])] = $infos['coltable'];
+            }
         }
+        dd($this->linkedModels);
         $this->selectedColumns = $this->columns;
         $this->selectedColumns['id']['visible'] = false;
     }
@@ -68,8 +73,8 @@ class RechercheComp extends Component
     {
         if(array_key_exists($model, $this->choices) && in_array($id, $this->choices[$model])) {
 
-            $key = array_keys($this->choices[$model], $id);
-            dd($key);
+            $key = array_search($id, $this->choices[$model]);
+
             unset($this->choices[$model][$key]);
 
         } else {
