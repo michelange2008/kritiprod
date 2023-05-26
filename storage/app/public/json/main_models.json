@@ -1,0 +1,18 @@
+{
+    "contenu" : {
+        "model" : "Contenu",
+        "label" : "Contenu des données",
+        "icone" : "contenu.svg"
+    },
+
+    "source" : {
+        "model" : "Source",
+        "label" : "Sources de données",
+        "icone" : "source.svg"
+    },
+    "brutesdata" : {
+        "model" : "Brutesdata",
+        "label" : "Données brutes",
+        "icone" : "brutesdata.svg"
+    }
+}

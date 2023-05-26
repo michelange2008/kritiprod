@@ -1,5 +1,5 @@
 {
-    "titre": "Contenu",
+    "titre": "Contenu des données",
     "icone": "contenu.svg",
     "sort": "",
     "show": true,
@@ -27,7 +27,7 @@
         "source_id": {
             "type": "select",
             "field": "source_id",
-            "label": "Source",
+            "label": "Sources",
             "rules": null,
             "align": "left",
             "onTable": true,
