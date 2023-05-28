@@ -95,7 +95,6 @@
                             src="{{ url('storage/img/icones/reset.svg') }}" alt="reset">
                     </button>
                 </div>
-
             @else
                 <div class="flex flex-row gap-2   px-3 mb-2">
                     <img class="w-8" src="{{ url('storage/img/icones/fleche_gauche.svg') }}" alt="fleche">
@@ -106,7 +105,11 @@
             <ul>
                 @isset($records)
                     @foreach ($records as $record)
-                        <li class="mb-3 border-y-2 p-3 bg-yellow-50">
+                        <li class="mb-3 border-y-2 p-3 bg-yellow-50 relative">
+                            <a href="">
+                                <img class="p-2 w-8 absolute top-0 right-0" src="{{ url('storage/img/icones/link.svg') }}"
+                                    alt="lien">
+                            </a>
                             @foreach ($selectedColumns as $column => $detail)
                                 {{-- On n'affiche que les champs avec l'attribut visible (checkbox) --}}
                                 @if ($detail['visible'])

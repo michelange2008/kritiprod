@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1200pt"
+   height="1200pt"
+   version="1.1"
+   viewBox="0 0 1200 1200"
+   id="svg4"
+   sodipodi:docname="link.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:zoom="0.4925"
+     inkscape:cx="800"
+     inkscape:cy="803.04569"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="m811.75 141.19c-38.988 0-70.602-31.617-70.602-70.602 0-38.973 31.617-70.586 70.602-70.586h317.66c38.957 0 70.586 31.645 70.586 70.586v317.67c0 38.973-31.617 70.586-70.586 70.586-38.973 0-70.586-31.617-70.586-70.586v-147.27l-408.92 408.92c-27.562 27.547-72.254 27.547-99.816 0-27.547-27.562-27.547-72.254 0-99.816l408.92-408.9zm247.07 529.41c0-38.988 31.617-70.586 70.586-70.586 38.973 0 70.586 31.602 70.586 70.586v458.82c0 38.973-31.617 70.586-70.586 70.586h-1058.8c-38.973 0-70.586-31.617-70.586-70.586v-1058.8c0-38.973 31.617-70.586 70.586-70.586h458.82c38.988 0 70.602 31.617 70.602 70.586 0 38.988-31.617 70.602-70.602 70.602h-388.21v917.64h917.64z"
+     id="path2"
+     style="fill:#808080" />
+</svg>
