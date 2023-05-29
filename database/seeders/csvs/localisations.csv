@@ -1,29 +1,28 @@
-id;nom
-1;Malia
-2;Palaikastro
-3;Phaistos
-4;Crète
-5;Chania
-6;Thera
-7;Grèce
-8;Mochlos
-9;Pseira
-10;Priniatikos Pyrgos
-11;Petras
-12;Kophinas
-13;Cnossos
-14;Zominthos
-15;Koumasa
-16;Gaidourophas
-17;Monastiraki
-18;Myrtos
-19;Papadiokampos
-20;Alatzomouri
-21;Vronda
-22;Aphrodite Kephali
-23;Sissi
-24;Chalasmenos
-25;Kommos
-26;Papadiokampos
-27;Petras-Kophinas-Cnossos
-28;Petras-Koumasa
+id;nom;carte
+1;Malia;malia.svg
+2;Palaikastro;palaikastro.svg
+3;Phaistos;phaistos.svg
+4;Crète;crete.svg
+5;Chania;chania.svg
+6;Thera;thera.svg
+7;Grèce;grece.svg
+8;Mochlos;mochlos.svg
+9;Pseira;pseira.svg
+10;Priniatikos Pyrgos;priniatikos_pyrgos.svg
+11;Petras;petras.svg
+12;Kophinas;kophinas.svg
+13;Cnossos;cnossos.svg
+14;Zominthos;zominthos.svg
+15;Koumasa;koumasa.svg
+16;Gaidourophas;gaidourophas.svg
+17;Monastiraki;monastiraki.svg
+18;Myrtos;myrtos.svg
+19;Papadiokampos;papadiokampos.svg
+20;Alatzomouri;alatzomouri.svg
+21;Vronda;vronda.svg
+22;Aphrodite Kephali;aphrodite_kephali.svg
+23;Sissi;sissi.svg
+24;Chalasmenos;chalasmenos.svg
+25;Kommos;kommos.svg
+27;Petras-Kophinas-Cnossos;petras_kophinas_cnossos.svg
+28;Petras-Koumasa;petras_koumasa.svg

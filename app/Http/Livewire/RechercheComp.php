@@ -16,7 +16,7 @@ class RechercheComp extends Component
     public $model; // Nom du model (correspondant au fichier dans le rep App\Models)
     public $modelWithPath; // Nom du model avec le chemin d'accès
     public $table; // Nom de la table dans la bdd pour le model 
-    public $columns; // Liste des intitulés de colonnes (réupérées à partir du json et non de la table)
+    public $columns; // Liste des intitulés de colonnes (récupérées à partir du json et non de la table)
     public $selectedColumns = []; // Liste des colonnes retenues pour affichage
     public $linkedModels = []; // Liste des models auxquels le model principal fait référence (relation one to many)
     public $toggleList = []; // Liste des linkedModels avec un booléen pour savoir si on affiche ou non le contenu de ces linkedModels
@@ -122,7 +122,9 @@ class RechercheComp extends Component
         foreach ($this->choices[$linkedModel] as $id => $checked) {
 
             $this->choices[$linkedModel][$id] = $all;
+
         }
+
         $this->displayChoosenRecords();
     }
 
@@ -134,14 +136,14 @@ class RechercheComp extends Component
     public function displayChoosenRecords()
     {
         $this->records = clone $this->recordsBack;
-
+        
         foreach ($this->records as $id_record => $record) {
 
             foreach ($this->choices as $model => $listIdVisibles) {
 
                 foreach ($listIdVisibles as $id => $visible) {
-
-                    if ($record->{ucfirst($model)}->id == $id  && !$visible) {
+                    
+                    if ($record->{strtolower($model)}->id == $id  && !$visible) {
 
                         $this->records->forget($id_record);
                     }

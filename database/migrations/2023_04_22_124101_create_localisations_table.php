@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('localisations', function (Blueprint $table) {
             $table->id();
             $table->string('nom', 191);
+            $table->string('carte', 191);
         });
     }
 

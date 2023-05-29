@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property-read \App\Models\Periode $periode
  * @property-read \App\Models\Source $source
  * @property-read \App\Models\Soustype $soustype
+ * @property-read \App\Models\Brutesdata $brutesdata
  * @method static \Illuminate\Database\Eloquent\Builder|Contenu newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Contenu newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Contenu query()
@@ -43,7 +44,7 @@ class Contenu extends Model
 
     public function brutesdatas()
     {
-        return $this->hasMany(Brutedata::class);
+        return $this->hasMany(Brutesdata::class);
     }
 
     public function localisation(): BelongsTo

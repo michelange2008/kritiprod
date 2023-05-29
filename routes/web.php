@@ -6,6 +6,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Livewire\UserComp;
 use App\Http\Livewire\AccessibleComp;
 use App\Http\Livewire\ApplicationComp;
+use App\Http\Livewire\ContenuShow;
 use App\Http\Livewire\LocalisationComp;
 use App\Http\Livewire\PeriodeComp;
 use App\Http\Livewire\DetailComp;
@@ -35,6 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/contenu/{id}', ContenuShow::class)->name('contenu.show');
+    Route::get('/sources/{id}', function () { return view('livewire.source-show'); })->name('source.show');
+    Route::get('/donnees_brutes/{id}', function () { return view('livewire.brutes-data-show'); })->name('brutesdata.show');
     
     // Route générique pour l'affichage de chaque table
     Route::get('tables/{model}', DetailComp::class);

@@ -3,10 +3,10 @@
     <div class="flex flex-row justify-start gap-4 mb-3" x-data="{ model: @entangle('model') }">
 
         {{-- Choix de la table dans lequel on va rechercher les enregisterements --}}
-        @foreach (Storage::json('public/json/main_models.json') as $model)
+        @foreach (Storage::json('public/json/main_models.json') as $mainModel)
             <div class="flex flex-row gap-2 p-5  bg-lime-700 ">
-                <img class="w-8" src="{{ url('storage/img/icones/' . $model['icone']) }}" alt="">
-                <button class="btn" wire:click="selectModel('{{ $model['model'] }}')">{{ $model['label'] }}</button>
+                <img class="w-8" src="{{ url('storage/img/icones/' . $mainModel['icone']) }}" alt="">
+                <button class="btn" wire:click="selectModel('{{ $mainModel['model'] }}')">{{ $mainModel['label'] }}</button>
             </div>
         @endforeach
 
@@ -106,7 +106,7 @@
                 @isset($records)
                     @foreach ($records as $record)
                         <li class="mb-3 border-y-2 p-3 bg-yellow-50 relative">
-                            <a href="">
+                            <a href="{{ route(strtolower($model).'.show', $record->id) }}">
                                 <img class="p-2 w-8 absolute top-0 right-0" src="{{ url('storage/img/icones/link.svg') }}"
                                     alt="lien">
                             </a>
