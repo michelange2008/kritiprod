@@ -37,7 +37,7 @@ class RechercheComp extends Component
      * Permet de choisir la table dont on veut afficher le enregistrements
      * 
      * Cette méthode définit les infos de base: nom du model, de la table, liste des colonnes
-     * et initailise les infos d'affichages: colonnes à afficher, models liés, ...
+     * et initialise les infos d'affichages: colonnes à afficher, models liés, ...
      * 
      * @param: String nom du model
      */
@@ -53,7 +53,7 @@ class RechercheComp extends Component
     }
     /**
      * Produit les données d'un model choisi après avoir récupérer les infos depuis un json
-     * peuple les varaibles: liste des colonnes, colones choisies, models liés (OneToMany) et 
+     * peuple les variables: liste des colonnes, colones choisies, models liés (OneToMany) et 
      * mise à false de l'affichage de ces models liés.
      */
     public function setDatas()
@@ -103,7 +103,7 @@ class RechercheComp extends Component
      * (par exemple ajouter ou supprimer une localisation dans le model lié Localisation)
      * 
      * @param String $linkedModel: model lié concerné
-     * @param String $id: id de l'enregistriment dans le model lié
+     * @param String $id: id de l’enregistrement dans le model lié
      */
     public function toggleValue(String $linkedModel, Int $id)
     {
