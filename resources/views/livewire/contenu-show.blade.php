@@ -6,7 +6,9 @@
         </h2>
     </x-slot>
 
-    <img src="{{ url('storage/img/cartes/'.$contenu->localisation->carte) }}" alt="">
+    <img class="w-48" src="{{ url('storage/img/cartes/'.$contenu->localisation->carte) }}" alt="">
 
+        {{ $contenu->soustype->type->nom}}
+        {{ $contenu->soustype->nom}}
 
 </div>

@@ -13,7 +13,7 @@ class RechercheComp extends Component
     public $records; // Liste des enregistrements issus de la table choisie
     public $recordsBack;
     public $modelInfosFromJson; // Informations sur le model issu du json correspondant
-    public $model; // Nom du model (correspondant au fichier dans le rep App\Models)
+    public $model = 'Contenu'; // Nom du model (correspondant au fichier dans le rep App\Models)
     public $modelWithPath; // Nom du model avec le chemin d'accès
     public $table; // Nom de la table dans la bdd pour le model 
     public $columns; // Liste des intitulés de colonnes (récupérées à partir du json et non de la table)
@@ -25,6 +25,7 @@ class RechercheComp extends Component
 
     public function mount()
     {
+        $this->selectModel('Contenu');
     }
 
     public function updated()
