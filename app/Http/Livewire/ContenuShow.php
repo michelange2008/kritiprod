@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Brutesdata;
 use App\Models\Contenu;
 use Livewire\Component;
 
@@ -9,10 +10,12 @@ class ContenuShow extends Component
 {
     public $contenu;
     public $essai = "bonjour";
+    public $brutesdatas;
 
-    public function mount()
+    public function mount($id)
     {
-        $this->contenu = Contenu::find(1);
+        $this->contenu = Contenu::find($id);
+        $this->brutesdatas = Brutesdata::where('contenu_id', $id)->get();
 
     }
     public function render()
