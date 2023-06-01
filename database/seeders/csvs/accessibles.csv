@@ -1,5 +1,5 @@
-id;nom
-1;Disponibles en matériel supplémentaire
-2;Disponibles au sein de l'article
-3;A récupérer
-4;Non essentielles pour la thèse
+id;nom;icone
+1;Disponibles en matériel supplémentaire;disponible_supplementaire.svg
+2;Disponibles au sein de l'article;disponible_article.svg
+3;A récupérer;disponible_chercher.svg
+4;Non essentielles pour la thèse;non_essentiel.svg

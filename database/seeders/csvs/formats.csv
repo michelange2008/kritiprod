@@ -1,4 +1,5 @@
-id;nom
-1;Fermés/propriétaires
-2;Codés (pdf)
-3;Textes (csv, xml, etc.)
+id;nom;icone
+1;Fermés/propriétaires;ferme.svg
+2;Codés (pdf);pdf.svg
+3;Textes (csv, xml, etc.);csv.svg
+4;-;vide.svg

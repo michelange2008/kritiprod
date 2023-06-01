@@ -68,5 +68,4 @@ class Brutesdata extends Model
     {
         return $this->belongsTo(Format::class);
     }
-
 }

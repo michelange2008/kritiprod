@@ -1,7 +1,7 @@
-id;nom
-1;variables quantitatives
-2;variables qualitatives
-3;variables quanti et quali
-4;données SIG
-5;Photos
-6;Plans
+id;nom;icone
+1;variables quantitatives;quantitatif.svg
+2;variables qualitatives;qualitatif.svg
+3;variables quanti et quali;quantiquali.svg
+4;données SIG;sig.svg
+5;Photos;photo.svg
+6;Plans;plan.svg
