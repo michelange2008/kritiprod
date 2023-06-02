@@ -79,6 +79,9 @@
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <p>{{ $brutesdata->accessible->nom }}</p>
+                            <img class="w-12 inline-block"
+                                src="{{ url('storage/img/icones/' . $brutesdata->accessible->icone) }}"
+                                alt="{{ $brutesdata->accessible->icone }}">
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <p>{{ $brutesdata->format->nom }}</p>
